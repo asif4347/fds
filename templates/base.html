@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Afforable a
+    nd profession web design">
+    <meta name="keywords" content="web design, Afforable web design, profession web design">
+    <meta name="author" content="Brad Traversy">
+    <title>FOOD DONOR</title>
+    <link href="{% static 'css/homes.css' %}" rel="stylesheet"/>
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <img src="{% static "images/Capture.PNG" %}" width="200px" height="100px" >
+
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="/home/index">Home</a></li>
+                    <li class="current"><a href="/home/about">About</a></li>
+                    <li class="current"><a href="/home/news">HIGHLIGHT</a></li>
+                    <li class="current"><a href="/home/contact">Contact us</a></li>
+                    <li class="current"><a href="/home/register">Register</a></li>
+                    <li class="current"><a href="/home/login">Login</a></li>
+
+                </ul>
+            </nav>
+
+            </div>
+
+        </div>
+    </header>
+
+
+        {% block main %}
+                <!--All the other components will be loaded in this block-->
+        {% endblock %}
+
+
+<footer>
+    <p>copyright @ fooddonor.com.pk</p>
+
+ </footer>
+
+</body>
+</html>

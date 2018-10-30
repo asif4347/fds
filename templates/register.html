@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+   <link href="{% static 'css/register.css' %}" rel="stylesheet"/>
+    <style>
+
+footer{
+	padding:2.5%;
+	margin-top:73%;
+	color:#ffffff;
+	background-color: #66CDAA;
+	text-align:center;
+}
+    </style>
+
+<div class="registerbox">
+        <img src="{% static "images/LoginIconAppl.png" %}" class="register" >
+        <h1>Register Here</h1>
+         <form method="post">
+             {% csrf_token %}
+         <p>Full Name</p>
+            <input type="text" name="name" placeholder="Enter Full Name">
+
+             {% for field in form %}
+                 {{ field.label_tag }}<br>
+                {{ field }}
+
+                {% for error in field.errors %}
+                  <p style="color: red">{{ error }}</p>
+                {% endfor %}
+             {% endfor %}
+            <p>Email</p>
+            <input type="text" name="email" placeholder="Enter Email">
+         	<h4>Register me as :</h4>
+             <select style="color: #000;" name="role" required class="form-control">
+                 <option value="">--Role--</option>
+                 <option value="Donor">Donor</option>
+                 <option value="Volunteer">Volunteer</option>
+             </select>
+               <input class="form-control" type="submit" name="" value="Submit">
+               </form>
+            </div>
+
+
+
+
+
+
+
+{% endblock %}
+

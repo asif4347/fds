@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+    <link href="{% static 'css/news.css' %}" rel="stylesheet"/>
+    <style>
+
+footer{
+	padding:2.5%;
+	margin-top:40%;
+	color:#ffffff;
+	background-color: #66CDAA;
+	text-align:center;
+}
+    </style>
+	 <section id="boxs">
+	<div class="container">
+	<div class="box">
+        <img src="{% static "images/download (2).jpg" %}" width="50" height="60" >
+
+	<h3>Breakfast bars</h3>
+	<p>Courtesy of Kyndra Claire Kelly, Chef and Food Blogger. PB & J Breakfast Bars. The perfect on-the-go snack! Skip the peanut butter and jelly, ...</p>
+	</div>
+	<div class="box">
+        <img src="{% static "images/download (1).jpg" %}" width="50" height="60" >
+
+	<h3>rice/pasta side dishes</h3>
+	<p>Add flavor to this favorite side dish. Baked Macaroni, Cheese & Spinach - Rich and cheesy side dish. Low Fat! Broccoli, Cauliflower & Rice Bake - Creamy, cheesy casserole makes a hearty side dish or a healthy main course
+	</p>
+	</div>
+	<div class="box">
+        <img src="{% static "images/download.jpg" %}" width="50" height="60" >
+
+		<h3>jelly</h3>
+		<p>Jelly (fruit preserves), a clear or translucent fruit spread or preserve, referred to as jelly in Canada and other countries</p>
+	</div>
+</div>
+</section>
+
+
+
+
+{% endblock %}

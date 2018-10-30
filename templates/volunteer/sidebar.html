@@ -1,0 +1,46 @@
+
+{% load static %}
+
+{% block sidebar %}
+<!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li> <a class="waves-effect waves-dark" href="{% url 'volunteer-index' %}" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Home</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="{% url 'volunteer-request' %}" aria-expanded="false"><i class="mdi mdi-notification-clear-all"></i><span class="hide-menu">Notification</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="{% url 'volunteer-pickups' %}" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Pickup List</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="{% url 'volunteer-map' %}" aria-expanded="false"><i class="mdi mdi-earth"></i><span class="hide-menu">Google Map</span></a>
+                        </li>
+
+                         <li>
+                         <div class="dropdown">
+                            <a class="waves-effect waves-dark" href="#" data-toggle="dropdown"  aria-expanded="false"><i class="mdi mdi-settings"></i><span class="hide-menu"> Setting</span></a>
+                          <ul class="dropdown-menu">
+                            <li><a class="waves-effect waves-dark" href="{% url 'volunteer-profile' %}">Profile update</a></li>
+                            <li><a class="waves-effect waves-dark" href="#">Term Policy</a></li>
+
+                          </ul>
+                         </div>
+                        </li>
+                    </ul>
+
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+            <!-- Bottom points-->
+
+            <!-- End Bottom points-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+
+{% endblock %}

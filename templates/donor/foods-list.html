@@ -1,0 +1,176 @@
+{% extends 'panel-base.html' %}
+{% block sidebar %}
+            {% include 'donor/sidebar.html' %}
+        {% endblock %}
+{% block bradcrump %}
+    <div class="row page-titles">
+                    <div class="col-md-5 col-8 align-self-center">
+                        <h3 class="text-themecolor">HOME</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'donor-index' %}">Home</a></li>
+                            <li class="breadcrumb-item active">Foods</li>
+                        </ol>
+                    </div>
+
+                </div>
+{% endblock %}
+{% block main %}
+    <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-block">
+                                <h4 class="card-title">All Foods</h4>
+                                <button data-toggle="modal" data-target="#exampleModal" class="btn btn-info"><i class="fa fa-plus-circle"></i> Add New Food</button><br><br/>
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Food Title</th>
+                                                <th>Food Type</th>
+                                                <th>Quantity</th>
+                                                <th>Preparation Date</th>
+                                                <th>Post Date</th>
+                                                <th>Status</th>
+                                                <th>Delivred At</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>11" Pizza</td>
+                                                <td>Fast Food</td>
+                                                <td>3 People</td>
+                                                <td>2018-05-12</td>
+                                                <td>2018-05-13</td>
+                                                <td><i class="btn-outline-primary mdi mdi-check"> Picked</i></td>
+                                                <td>NAN</td>
+                                                <td>
+                                                    <button  data-toggle="modal" data-target="#exampleModal" class="btn btn-warning"><i class="fa fa-pencil"></i> Update</button>
+
+                                                    <button  data-toggle="modal" data-target="#deleteModal" class="btn btn-danger"><i class="fa fa-trash-o"></i> Delete</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Alu Matar</td>
+                                                <td>Regular Food</td>
+                                                <td>4 People</td>
+                                                <td>2018-05-12</td>
+                                                <td>2018-05-13</td>
+                                                <td><i class="btn-outline-warning mdi mdi-timer"> New Entry</i></td>
+                                                <td>NAN</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-warning"><i class="fa fa-pencil"></i> Update</a>
+                                                    <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i> Delete</a>
+                                                </td>
+                                            </tr>
+                                        <tr>
+                                                <td>3</td>
+                                                <td>Chicken Bhindi</td>
+                                                <td>Regular Food</td>
+                                                <td>2 People</td>
+                                                <td>2018-05-12</td>
+                                                <td>2018-05-14</td>
+                                                <td><i class="btn-outline-success mdi mdi-check-all"> Delivered</i></td>
+                                                <td>Faisal Town Branch</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-warning"><i class="fa fa-pencil"></i> Update</a>
+                                                    <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i> Delete</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- =============================
+                <!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Food Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal form-material">
+                                    <div class="form-group">
+                                        <label class="col-md-12">Food Title</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="Cheez Burger" class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Food Type</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="fast food" class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                     <div class="form-group">
+                                        <label class="col-md-12">preparation date</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="16-07-2018" class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                   <div class="form-group">
+                                        <label class="col-md-12">post date</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="17-07-2018" class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="example-email" class="col-md-12">Quantity</label>
+                                        <div class="col-md-12">
+                                            <input type="number" placeholder="2" class="form-control form-control-line" name="example-email" id="example-email"> People
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Image</label>
+                                        <div class="col-md-12">
+                                            <input type="File" value="Image" class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Food Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <h3>Are you sure you want to delete it?</h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

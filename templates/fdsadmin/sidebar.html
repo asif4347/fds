@@ -1,0 +1,46 @@
+{% load static %}
+
+{% block sidebar %}
+<!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li> <a class="waves-effect waves-dark" href="{% url 'fdsadmin-index' %}" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Home</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="{% url 'fdsadmin-profile' %}" aria-expanded="false"><i class="mdi mdi-account"></i><span class="hide-menu">Update Profile</span></a>
+                        </li>
+
+                        <li> <a class="waves-effect waves-dark" href="{% url 'fdsadmin-donors' %}" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Donors</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="{% url 'fdsadmin-volunteers' %}" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Volunteers</span></a>
+                        </li>
+
+                        <li> <a class="waves-effect waves-dark" href="{% url 'fdsadmin-feedbacks' %}" aria-expanded="false"><i class="mdi mdi-thumb-up"></i><span class="hide-menu">Feedback</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="{% url 'fdsadmin-account-approve' %}" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Account Approve</span></a>
+                        </li>
+
+                         <li> <a class="waves-effect waves-dark" href="{% url 'fdsadmin-manage-account' %}" aria-expanded="false"><i class="mdi mdi-account-circle"></i><span class="hide-menu">Manage Account</span></a>
+                        </li>
+
+
+                    </ul>
+
+
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+            <!-- Bottom points-->
+
+            <!-- End Bottom points-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+
+{% endblock %}

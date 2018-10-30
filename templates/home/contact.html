@@ -1,0 +1,203 @@
+
+{% load static %}
+
+{% block main %}
+
+    <style>
+   body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+header{
+	background: #66CDAA;
+	color:#ffffff;
+	padding-top:58px;
+	min-height:115px;
+}
+
+ header a{
+	color:#ffffff;
+	text-decoration:none;
+	text-transform: uppercase;
+	font-size:16px;
+
+}
+
+header li{
+	float:left;
+	display:inline;
+	padding: 0 20px 0 20px;
+}
+
+ header #branding{
+ 	float:left;
+ 	margin-top:-4.5%;
+
+
+ }
+
+ header #branding h1{
+ 	margin:0px;
+
+
+ }
+  header nav{
+ 	float:right;
+ 	margin-top:5px;
+ }
+
+ header .highlight, header .current a{
+ 	color:white;
+ 	font-weight:bold;
+ }
+
+ header a:hover{
+ 	color:#cccccc;*
+ 	font-weight:bold;
+ }
+
+.container {
+    position: relative;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.container .content {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 97%;
+    padding: 40px;
+    margin-bottom: 20%;
+}
+
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 0px;
+}
+
+footer{
+	padding:1.5%;
+	margin-top:57%;
+	color:#ffffff;
+	background-color: #66CDAA;
+	text-align:center;
+}
+    </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Afforable a
+    nd profession web design">
+    <meta name="keywords" content="web design, Afforable web design, profession web design">
+    <meta name="author" content="Brad Traversy">
+    <title>FOOD DONOR</title>
+     <link href="{% static 'css/contact.css' %}" rel="stylesheet"/>
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <img src="{% static "images/Capture.PNG" %}" width="200" height="115" >
+
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="/home/index">Home</a></li>
+                    <li class="current"><a href="/home/about">About</a></li>
+                    <li class="current"><a href="/home/news">HIGHLIGHT</a></li>
+                    <li class="current"><a href="/home/contact">Contact us</a></li>
+                    <li class="current"><a href="/home/register">Register</a></li>
+                    <li class="current"><a href="/home/login">Login</a></li>
+
+                </ul>
+            </nav>
+
+            </div>
+
+        </div>
+    </header>
+	<article id="main-col">
+<section id="show">
+	<h1 class="page-title">Contact Us</h1>
+			<p>
+				We'd love to hear from you, about becoming involved in the program, making an inquiry, or anything else.  <br>You can also friend us on Facebook. </br>
+
+
+          <strong>Food Donor</strong><br>
+		203,BOR johar Town  <br>
+		Lahore</p>
+        <p>
+		Email: <a href="mailto:FoodDonor@gmail.com">FoodDonor@gmail.com</a><br>
+            Facebook: <a href="http://www.facebook.com/pages/food donor/173494959359096" target="_blank">Food donor</a></p>
+		</section>
+	</article>
+<aside id="sidebar">
+	<div class="dark">
+	<div id="column1">
+	<h3 style="color:#45a049;">Contact Form</h3>
+
+    <div class="container">
+  <form action="" method="post">
+      {% csrf_token %}
+    <label for="fname">Full Name</label>
+    <input type="text" id="fname" name="full_name" placeholder="your full name..">
+
+    <label for="lname">Email</label>
+    <input type="text" id="email" name="email" placeholder="your email..">
+
+
+
+
+    <label for="subject">Message</label>
+    <textarea id="subject" name="message" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+    	</div>
+	</div>
+</aside>
+
+
+
+
+
+{% endblock %}
+
+<footer>
+    <p>copyright @ fooddonor.com.pk</p>
+
+ </footer>
+
+</body>
+</html>

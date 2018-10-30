@@ -1,0 +1,147 @@
+{% extends 'panel-base.html' %}
+{% block sidebar %}
+            {% include 'volunteer/sidebar.html' %}
+        {% endblock %}
+{% block bradcrump %}
+    <div class="row page-titles">
+                    <div class="col-md-5 col-8 align-self-center">
+                        <h3 class="text-themecolor">HOME</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'volunteer-index' %}">Home</a></li>
+                            <li class="breadcrumb-item active">request</li>
+                        </ol>
+                    </div>
+
+                </div>
+{% endblock %}
+{% block main %}
+    <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-block">
+                                <h4 class="card-title">Notification</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Food Title</th>
+                                                <th>Quantity</th>
+                                                <th>Date</th>
+                                                <th>Location</th>
+
+
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>11" Pizza</td>
+                                                <td>3 People</td>
+                                                <td>2018-05-12</td>
+                                                <td>
+                                                    <a href="{% url 'volunteer-map' %}">Navigate</a>
+                                                </td>
+
+                                                <td>
+
+                                                    <button  data-toggle="modal" data-target="#acceptModal" class="btn btn-primary"><i class="fa fa-check-o"></i> Accept</button>
+
+
+
+                                                    <button  data-toggle="modal" data-target="#rejectModal" class="btn btn-primary"><i class="fa fa-check-o"></i> Reject</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Alu Matar</td>
+                                                <td>4 People</td>
+                                                <td>2018-05-12</td>
+                                                <td>
+                                                    <a href="{% url 'volunteer-map' %}">Navigate</a>
+                                                </td>
+
+
+
+                                                  <td>
+
+                                                    <button  data-toggle="modal" data-target="#acceptModal" class="btn btn-primary"><i class="fa fa-check-o"></i> Accept</button>
+
+
+
+                                                    <button  data-toggle="modal" data-target="#rejectModal" class="btn btn-primary"><i class="fa fa-check-o"></i> Reject</button>
+                                                </td>
+                                            </tr>
+                                        <tr>
+                                                <td>3</td>
+                                                <td>Chicken Bhindi</td>
+                                                <td>2 People</td>
+                                                <td>2018-05-12</td>
+                                            <td>
+                                                    <a href="{% url 'volunteer-map' %}">Navigate</a>
+                                                </td>
+
+                                                  <td>
+
+                                                    <button  data-toggle="modal" data-target="#acceptModal" class="btn btn-primary"><i class="fa fa-check-o"></i> Accept</button>
+
+
+
+                                                    <button  data-toggle="modal" data-target="#rejectModal" class="btn btn-primary"><i class="fa fa-check-o"></i> Reject</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- =============================
+                <!-- Button trigger modal -->
+
+    <!-- Modal -->
+<div class="modal fade" id="rejectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Request</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <h3>Are you sure you want to Reject it?</h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">reject</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="acceptModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Request</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <h3>Are you sure you want to accept it?</h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">accept</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

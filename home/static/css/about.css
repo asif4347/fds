@@ -1,0 +1,120 @@
+
+body{
+	font: 15px/1.5 Arial, Helvatice,sans-serif;
+	background-image: url(../images/th.jpg);
+	padding: 0;
+	margin: 0;
+	background-color:#f4f4f4;
+}
+
+
+
+.button_1{
+	height: 38px;
+	background:#e8491d;
+	border:0;
+	padding-left:20px;
+	padding-right:20px;
+	color:#ffffff;
+}
+
+.dark{
+	padding:15px;
+	background:darkslategrey;
+	color:#ffffff;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+
+#showcase{
+ 	min-height:400px;
+ 	background-image: url('../images/image.jpg'); 
+ 	background-size: cover;
+ 	padding: 50px 100px;
+ 	margin: 100px;
+ 	text-align: center; 
+ 	columns:#ffffff;
+
+ }
+
+#showcase h1{
+	margin-top:100px;
+	font-size:55px;
+	margin-bottom:10;
+}
+#showcase p{
+	font-size:20px;
+}
+
+
+/* newsletter */
+
+#newsletter{
+	padding:15px;
+	columns:#ffffff;
+	background:#35424a;
+
+}
+
+
+
+#newsletter h1{
+	float:left;
+}
+
+#newsletter form{
+	float:right;
+	margin-top:15px;
+	
+}
+
+#newsletter input[type="email"]{
+	padding:4px;
+	height:25px;
+	width:250px;
+
+}
+
+/*Boxes */
+
+
+/* sidebar */
+
+aside#sidebar{
+	float:left;
+	width:30%;
+	margin-top:18%;
+}
+
+/* main-col */
+article#main-col{
+	float:right;
+	width:65%;
+	padding: 2.5%;
+}
+section#About{
+	background-color: green;
+}
+picture#main-col1{
+	
+   font-size:90px;
+}
+section#show{
+	min-height:400px;
+ 
+ 	background-size: cover;
+ 	padding: 50px 50px;
+ 	margin: 20px;
+ 	text-align: center; 
+ 	columns:#ffffff;
+
+}
+
+footer{
+	padding:30px;
+	margin-top:80px;
+	color:#ffffff;
+	background-color: #66CDAA;
+	text-align:center;
+}

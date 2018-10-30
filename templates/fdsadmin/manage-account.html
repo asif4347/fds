@@ -1,0 +1,148 @@
+{% extends 'panel-base.html' %}
+{% block sidebar %}
+            {% include 'fdsadmin/sidebar.html' %}
+        {% endblock %}
+{% block bradcrump %}
+    <div class="row page-titles">
+                    <div class="col-md-5 col-8 align-self-center">
+                        <h3 class="text-themecolor">HOME</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'fdsadmin-index' %}">Home</a></li>
+                            <li class="breadcrumb-item active">Manage Account</li>
+                        </ol>
+                    </div>
+
+                </div>
+{% endblock %}
+{% block main %}
+    <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-block">
+                                <h4 class="card-title">Account Management</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Address</th>
+                                                 <th>Role AS</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>javaid</td>
+                                                <td>jeydogar@gmail.com</td>
+                                                <td>243-C block,Model Town,Lahore</td>
+                                                <td>Donor</td>
+
+
+
+                                                     <td>
+
+                                                    <button  data-toggle="modal" data-target="#block" class="btn btn-primary"><i class="fa fa-check-o"></i> Block</button>
+
+
+
+                                                    <button  data-toggle="modal" data-target="#delete" class="btn btn-primary"><i class="fa fa-check-o"></i> Delete</button>
+                                                </td>
+
+                                            </tr>
+                                         <tr>
+                                                <td>2</td>
+                                                <td>Aqsa Umar</td>
+                                                <td>aqsaumar123@gmail.com</td>
+                                                <td>456-B block,Johar Town,Lahore</td>
+                                                <td>Volunteer</td>
+
+
+
+                                                     <td>
+
+                                                    <button  data-toggle="modal" data-target="#block" class="btn btn-primary"><i class="fa fa-check-o"></i> Block</button>
+
+
+
+                                                    <button  data-toggle="modal" data-target="#delete" class="btn btn-primary"><i class="fa fa-check-o"></i> Delete</button>
+                                                </td>
+
+                                            </tr>
+                                         <tr>
+                                                <td>3</td>
+                                                <td>Zeenat</td>
+                                                <td>zeenat123456@gmail.com</td>
+                                                <td>243-A block,faisal Town,Lahore</td>
+                                                <td>Donor</td>
+
+
+
+                                                     <td>
+
+                                                    <button  data-toggle="modal" data-target="#block" class="btn btn-primary"><i class="fa fa-check-o"></i> Block</button>
+
+
+
+                                                    <button  data-toggle="modal" data-target="#delete" class="btn btn-primary"><i class="fa fa-check-o"></i> Delete</button>
+                                                </td>
+
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- =============================
+                <!-- Button trigger modal -->
+
+    <!-- Modal -->
+<div class="modal fade" id="block" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Request</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <h3>Are you sure you want to Block Account it?</h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Block</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Request</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <h3>Are you sure you want to Delete Account it?</h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

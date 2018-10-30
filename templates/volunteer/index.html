@@ -1,0 +1,51 @@
+{% extends 'panel-base.html' %}
+{% block sidebar %}
+            {% include 'volunteer/sidebar.html' %}
+        {% endblock %}
+{% block bradcrump %}
+    <div class="row page-titles">
+                    <div class="col-md-5 col-8 align-self-center">
+                        <h3 class="text-themecolor">HOME</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item active"></li>
+                        </ol>
+                    </div>
+
+                </div>
+{% endblock %}
+
+{% block main %}
+     <!-- Row -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-12 col-md-12">
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="d-flex flex-wrap">
+                                            <div>
+                                                <h3 class="card-title">Pickups Overview</h3>
+                                                <h6 class="card-subtitle">Pickups per days</h6> </div>
+                                            <div class="ml-auto">
+                                                <ul class="list-inline">
+                                                    <li>
+                                                        <h6 class="text-muted text-success"><i class="fa fa-circle font-10 m-r-10 "></i>Fast Food</h6> </li>
+                                                    <li>
+                                                        <h6 class="text-muted  text-info"><i class="fa fa-circle font-10 m-r-10"></i>Regular Food</h6> </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="amp-pxl" style="height: 360px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+{% endblock %}

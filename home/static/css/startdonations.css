@@ -1,0 +1,283 @@
+
+
+body {
+	background: url('../images/map_of_lahore.jpg') no-repeat;
+	background-size: cover;
+	font-family: Arial;
+	color: white;
+
+}
+
+header{
+	background: #66CDAA;
+	color:#ffffff;
+	margin-top: -8px; 
+	padding-top:40px;
+	min-height:70px;
+	margin-right: -5px;
+}
+
+ header a{
+	color:#ffffff;
+	text-decoration:none;
+	text-transform: uppercase;
+	font-size:16px; 
+
+}
+
+header li{
+	float:left;
+	display:inline;
+	padding: 0 10px 0 10px;
+}
+
+ header #branding{
+ 	float:left;
+ }
+
+ header #branding h1{
+ 	margin:0;
+ }
+  header nav{
+ 	float:right;
+ 	margin-top:0px; 
+ }
+
+ header .highlight, header .current a{
+ 	color:#e8491d;
+ 	font-weight:bold; 
+ } 
+
+ header a:hover{
+ 	color:#cccccc;*
+ 	font-weight:bold;
+ }
+
+ul {
+
+	margin: -5px;
+	padding: 0px;
+	list-style: none;
+
+}
+
+ul li {
+	float: left;
+	width: 231px;
+	height: 90px;
+	opacity: 19;
+	line-height: 40px;
+	text-align: right;
+	font-size: 20px;
+	margin-right: 0px;
+
+	}
+
+	ul li a {
+		text-decoration: none;
+		color: white;
+		/*display: block;*/
+	}
+	ul li a:hover {
+		background-color: #e8491d;
+	}
+	ul li ul li {
+		display: none;
+	}
+	 ul li:hover ul li {
+	 	display: block;
+	 }
+
+	  .container {
+    position: relative; 
+    max-width: 1500px; 
+    margin: 0 auto; 
+}
+
+.container .content {
+    position: absolute; 
+    bottom: 0; 
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1; 
+    width: 97%; 
+    padding: 0px; 
+}
+
+
+/* {
+		margin: 0;
+		border: 0;
+		padding: 0;
+	}	
+
+	body{
+		background: #C0C0C0;
+		font:14px/20px Arial, son-serif;
+		color: #555;
+		margin: 0; 
+	}
+
+	/* Header */
+/*header{
+	background: #3cb371;
+	color:#ffffff;
+	padding-top:30px;
+	min-height:70px;
+	border-bottom:#e8491d 3px solid;
+}
+
+ header a{
+	color:#ffffff;
+	text-decoration:none;
+	text-transform: uppercase;
+	font-size:16px; 
+
+}
+
+header li{
+	float:left;
+	display:inline;
+	padding: 0 20px 0 20px;
+}
+
+ header #branding{
+ 	float:left;
+ }
+
+ header #branding h1{
+ 	margin:0;
+ }
+  header nav{
+ 	float:right;
+ 	margin-top:10px; 
+ }
+
+ header .highlight, header .current a{
+ 	color:#e8491d;
+ 	font-weight:bold; 
+ } 
+
+ header a:hover{
+ 	color:#cccccc;*
+ 	font-weight:bold;
+ }
+
+ .container {
+    position: relative; 
+    max-width: 1500px; 
+    margin: 0 auto; 
+}
+
+.container .content {
+    position: absolute; 
+    bottom: 0; 
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1; 
+    width: 97%; 
+    padding: 20px; 
+}
+
+footer{
+	padding:30px;
+	margin-top:0px;
+	color:#ffffff;
+	background-color: #3cb371;
+	text-align:center;
+}*/
+
+
+
+
+
+
+
+
+
+
+/** {
+		margin: 0;
+		border: 0;
+		padding: 0;
+	}	
+
+	
+
+
+	/*body{
+		background: #C0C0C0;
+		font:14px/20px Arial, son-serif;
+		color: #555;
+		margin: 0; 
+	}
+
+	/* Header */
+/*header{
+	background: #3cb371;
+	color:#ffffff;
+	padding-top:30px;
+	min-height:70px;
+	border-bottom:#e8491d 3px solid;
+}
+
+ header a{
+	color:#ffffff;
+	text-decoration:none;
+	text-transform: uppercase;
+	font-size:16px; 
+
+}
+
+header li{
+	float:left;
+	display:inline;
+	padding: 0 20px 0 20px;
+}
+
+ header #branding{
+ 	float:left;
+ }
+
+ header #branding h1{
+ 	margin:0;
+ }
+  header nav{
+ 	float:right;
+ 	margin-top:10px; 
+ }
+
+ header .highlight, header .current a{
+ 	color:#e8491d;
+ 	font-weight:bold; 
+ } 
+
+ header a:hover{
+ 	color:#cccccc;*
+ 	font-weight:bold;
+ }
+
+ .container {
+    position: relative; 
+    max-width: 1500px; 
+    margin: 0 auto; 
+}
+
+.container .content {
+    position: absolute; 
+    bottom: 975px; 
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1; 
+    width: 15%;
+    right: 10px; 
+    padding: 0px; 
+}
+
+footer{
+	padding:35px;
+	margin-top:-5px;
+	color:#ffffff;
+	background-color: #3cb371;
+	text-align:center;
+}
+
+
+
