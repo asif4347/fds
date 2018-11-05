@@ -1,0 +1,29 @@
+{% extends 'panel-base.html' %}
+
+{% load static %}
+{% block sidebar %}
+            {% include 'donor/sidebar.html' %}
+        {% endblock %}
+{% block bradcrump %}
+    <div class="row page-titles">
+                    <div class="col-md-5 col-8 align-self-center">
+                        <h3 class="text-themecolor">HOME</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'donor-index' %}">Home</a></li>
+                            <li class="breadcrumb-item active">Food Update</li>
+                        </ol>
+                    </div>
+
+                </div>
+{% endblock %}
+{% block main %}
+ <div class="row">
+ <form method="post">
+ {% csrf_token %}
+     {% include 'form.html' %}
+     <button type="submit" class="btn btn-success">Update</button>
+     <br>
+     <br>
+ </form>
+ </div>
+{% endblock %}

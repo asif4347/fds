@@ -1,3 +1,4 @@
+from django.db.models import Count
 from django.shortcuts import render,redirect
 from .forms import FeedbackForm,FoodForm,ProfileForm
 from django.contrib.auth.decorators import login_required
@@ -6,11 +7,16 @@ from .models import Donor,Food
 
 @login_required
 def index(request):
-    return  render(request,'donor/index.html')
+    donor = Donor.objects.get(user=request.user)
+    donations = Food.objects.filter(donor=donor)
+    fast=donations.filter(food_type='Fast Food').extra({'post_date': "date(post_date)"}).values('post_date').annotate(count=Count('id'))
+    regular=donations.filter(food_type='Regular Food').extra({'post_date': "date(post_date)"}).values('post_date').annotate(count=Count('id'))
+    return render(request,'donor/index.html',{'fast':fast,'regular':regular})
 
 @login_required
 def profile(request):
     donor = Donor.objects.get(user=request.user)
+    donations=Food.objects.filter(donor=donor).__len__()
     msg=""
     form=ProfileForm(instance=donor)
     if request.method=="POST":
@@ -18,7 +24,7 @@ def profile(request):
         if form.is_valid():
             form.save()
             msg="Profile Updated Successfully"
-    return  render(request,'donor/profile.html',{'form':form,'msg':msg})
+    return  render(request,'donor/profile.html',{'form':form,'msg':msg,'donations':donations,'name':donor.name})
 
 @login_required
 def foods(request):
@@ -63,6 +69,26 @@ def feedback(request):
     else:
         form=FeedbackForm()
     return render(request,'donor/feedback.html',{"form":form,'msg':msg})
+
+
+@login_required
+def delete(request,pk):
+    food=Food.objects.get(pk=pk)
+    food.delete()
+    return redirect('donor-foods')
+
+
+@login_required
+def update(request,pk):
+    food = Food.objects.get(pk=pk)
+    if request.method=="POST":
+        form=FoodForm(request.POST,instance=food)
+        if form.is_valid():
+            form.save()
+            return redirect('donor-foods')
+    else:
+        form=FoodForm(instance=food)
+    return render(request,'donor/update.html',{'form':form})
 
 def term_policy(request):
     return  render(request,'donor/term-policy.html')

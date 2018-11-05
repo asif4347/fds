@@ -16,6 +16,9 @@
 {% endblock %}
 
 {% block main %}
+    {% for data in fast %}
+        <li>{{ data.count }}</li>
+    {% endfor %}
      <!-- Row -->
                 <div class="row">
                     <!-- Column -->
@@ -27,7 +30,7 @@
                                         <div class="d-flex flex-wrap">
                                             <div>
                                                 <h3 class="card-title">Donations Overview</h3>
-                                                <h6 class="card-subtitle">Donations per days</h6> </div>
+                                                <h6 class="card-subtitle">Donations per Date</h6> </div>
                                             <div class="ml-auto">
                                                 <ul class="list-inline">
                                                     <li>

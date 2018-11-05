@@ -60,7 +60,7 @@
                                                 </td>
                                                 <td>{{ food.delivered_at }}</td>
                                                 <td>
-                                                    <button  data-toggle="modal" data-target="#exampleModal" onclick="updateFood({{ food.id }})" class="btn btn-warning"><i class="fa fa-pencil"></i> Update</button>
+                                                    <a href="{% url 'update-food'  food.pk  %}"   class="btn btn-warning"><i class="fa fa-pencil"></i> Update</a>
 
                                                     <button  data-toggle="modal" data-target="#deleteModal" onclick="deleteFood({{ food.id }})" class="btn btn-danger"><i class="fa fa-trash-o"></i> Delete</button>
                                                 </td>
@@ -127,7 +127,7 @@
 </div>
 <script>
 function deleteFood(id) {
-    document.getElementById('del').href="/donor/delete/"+id
+    document.getElementById('del').href="/donor/food/"+id+"/delete"
 }
 </script>
 {% endblock %}

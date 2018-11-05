@@ -19,6 +19,8 @@ class Donor(models.Model):
     area_name=models.CharField(help_text='Johar Town, Faisal Town',max_length=30)
     image=models.ImageField(blank=True)
     gender=models.CharField(max_length=6,blank=True,null=True,choices=gender)
+    city=models.CharField(max_length=20,blank=True,null=True)
+    country=models.CharField(max_length=20,blank=True,null=True)
 
     def __str__(self):
         return self.name

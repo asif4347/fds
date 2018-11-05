@@ -23,10 +23,11 @@
                         <div class="card">
                             <div class="card-block">
                                 <center class="m-t-30"> <img src="{% static 'Panel/assets/images/users/Capture.PNG' %}" class="img-circle" width="150" />
-                                    <h4 class="card-title m-t-10">javaid</h4>
+                                    <center><button><i class="fa fa-camera"></i></button></center>
+                                    <h4 class="card-title m-t-10">{{ name }}</h4>
 {#                                    <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>#}
                                     <div class="row text-center justify-content-md-center">
-                                        <div class="col-4"><a href="javascript:void(0)" class="link">Donations: 254</a></div>
+                                        <div class="col-4"><a href="javascript:void(0)" class="link">Donations: {{ donations }}</a></div>
 
                                     </div>
                                 </center>

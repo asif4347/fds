@@ -8,6 +8,8 @@ class ProfileForm(ModelForm):
         fields=(
             "name",
             "address",
+            'city',
+            'country',
             "mobile",
             "area_name",
             'gender'
@@ -23,6 +25,7 @@ class FoodForm(ModelForm):
             "preparation_date",
             "post_date",
             "quantity",
+            'image'
         )
 
 class FeedbackForm(ModelForm):
