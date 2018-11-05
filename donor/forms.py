@@ -3,8 +3,6 @@ from .models import *
 
 
 class ProfileForm(ModelForm):
-    password1=models.CharField(max_length=50,type='password')
-    password2=models.CharField(max_length=50,type='password')
     class Meta:
         model=Donor
         fields=(
@@ -12,6 +10,27 @@ class ProfileForm(ModelForm):
             "address",
             "mobile",
             "area_name",
-            "password1",
-            "password2",
+            'gender'
+
         )
+
+class FoodForm(ModelForm):
+    class Meta:
+        model=Food
+        fields=(
+            "food_title",
+            "food_type",
+            "preparation_date",
+            "post_date",
+            "quantity",
+        )
+
+class FeedbackForm(ModelForm):
+    class Meta:
+       model = Feedback
+       fields = (
+                    'full_name',
+                    'email',
+                    'comment',
+                )
+

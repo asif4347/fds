@@ -21,11 +21,35 @@
 
                         <li> <a class="waves-effect waves-dark" href="{% url 'fdsadmin-feedbacks' %}" aria-expanded="false"><i class="mdi mdi-thumb-up"></i><span class="hide-menu">Feedback</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="{% url 'fdsadmin-account-approve' %}" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Account Approve</span></a>
+
+                         <li>
+                        <div class="dropdown">
+                            <a class="waves-effect waves-dark" href="#" data-toggle="dropdown"  aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu"> Account Approve</span></a>
+
+
+                          <ul class="dropdown-menu">
+                            <li><a class="waves-effect waves-dark" href="{% url 'fdsadmin-donor' %}">Donors</a></li>
+                            <li><a class="waves-effect waves-dark" href="{% url 'fdsadmin-volunteer' %}">Volunteers</a></li>
+
+                          </ul>
+                        </div>
                         </li>
 
-                         <li> <a class="waves-effect waves-dark" href="{% url 'fdsadmin-manage-account' %}" aria-expanded="false"><i class="mdi mdi-account-circle"></i><span class="hide-menu">Manage Account</span></a>
+                          <li>
+                        <div class="dropdown">
+                            <a class="waves-effect waves-dark" href="#" data-toggle="dropdown"  aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Manage Account</span></a>
+
+                       <ul class="dropdown-menu">
+                            <li><a class="waves-effect waves-dark" href="{% url 'fdsadmin-donor-manage' %}">Donors</a></li>
+                            <li><a class="waves-effect waves-dark" href="{% url 'fdsadmin-volunteer-manage' %}">Volunteers</a></li>
+
+                          </ul>
+                        </div>
                         </li>
+
+
+
+
 
 
                     </ul>

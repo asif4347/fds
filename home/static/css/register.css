@@ -9,10 +9,10 @@
 
 .registerbox{
 	width: 320px;
-	height: 860px;
+	height: 730px;
 	background: #b4b4b4;
 	color: #fffff;
-	top: 102%;
+	top: 92%;
 	left: 50%;
 	position: absolute;
 	transform: translate(-50%,-50%);

@@ -20,7 +20,7 @@ footer{
          <form method="post">
              {% csrf_token %}
          <p>Full Name</p>
-            <input type="text" name="name" placeholder="Enter Full Name">
+            <input type="text" name="name" placeholder="">
 
              {% for field in form %}
                  {{ field.label_tag }}<br>
@@ -31,14 +31,14 @@ footer{
                 {% endfor %}
              {% endfor %}
             <p>Email</p>
-            <input type="text" name="email" placeholder="Enter Email">
+            <input type="text" name="email" placeholder="">
          	<h4>Register me as :</h4>
              <select style="color: #000;" name="role" required class="form-control">
                  <option value="">--Role--</option>
                  <option value="Donor">Donor</option>
                  <option value="Volunteer">Volunteer</option>
              </select>
-               <input class="form-control" type="submit" name="" value="Submit">
+               <input class="form-control" type="submit" name="" value="Submit" style="margin-top: 30px">
                </form>
             </div>
 

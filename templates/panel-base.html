@@ -98,7 +98,7 @@
                                      margin-right: 46px;"></i></a>
 
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{% static 'Panel/assets/images/users/Capture.PNG' %}" alt="user" class="profile-pic m-r-10" />Javaid Dogar</a>
-                        <!-- item--><a href="" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
+                        <!-- item--><a href="/home/logout" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -183,6 +183,15 @@
     <script src="{% static 'Panel/assets/plugins/c3-master/c3.min.js' %}"></script>
     <!-- Chart JS -->
     <script src="{% static  'Panel/lite/js/dashboard1.js' %}"></script>
+<script>
+$('input').attr('class','form-control')
+    $('select').attr('class','form-control')
+</script>
+{# <script>#}
+{#        document.getElementsByTagName('input').forEach(function (input) {#}
+{#            input.setAttribute("class","form-control")#}
+{#        })#}
+{#    </script>#}
 </body>
 
 </html>

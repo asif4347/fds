@@ -16,23 +16,10 @@
 {% endblock %}
 {% block main %}
     <div class="container" style="width: 470px;">
-  <form action="">
-
-    <label for="fname">Full Name</label>
-    <input type="text" id="fname" name="fullname" placeholder="Your full name..">
-
-    <label for="lname">Email</label>
-    <input type="text" id="email" name="email" placeholder="Your email name..">
-
-    <!--<label for="country">Center</label>
-    <select id="country" name="country">
-      <option value="australia">Johar Town</option>
-      <option value="canada">faisal Town</option>
-      <option value="usa">Model Town</option>
-    </select>-->
-
-    <label for="subject">comment</label>
-    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+    <p style="color:green">{{ msg }}</p>
+  <form method="post">
+  {% csrf_token %}
+    {% include 'form.html' %}
 
     <input type="submit" value="Submit">
 

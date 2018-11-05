@@ -11,5 +11,8 @@ urlpatterns = [
     url(r'^profile$', views.profile, name='fdsadmin-profile'),
     url(r'^donor-food$', views.donor_food, name='fdsadmin-donor-food'),
     url(r'^view-volunteers$',views.view_volunteers,name='fdsadmin-view-volunteers'),
-
+    url(r'^donor$', views.donor, name='fdsadmin-donor'),
+    url(r'^volunteer$',views.volunteer,name='fdsadmin-volunteer'),
+url(r'^donor-manage$', views.donor_manage, name='fdsadmin-donor-manage'),
+    url(r'^volunteer-manage$',views.volunteer_manage,name='fdsadmin-volunteer-manage'),
 ]

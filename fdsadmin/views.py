@@ -32,3 +32,14 @@ def donor_food(request):
 def view_volunteers(request):
     return  render(request,'fdsadmin/view-volunteers.html')
 
+def donor(request):
+    return  render(request,'fdsadmin/donor.html')
+
+def volunteer(request):
+    return  render(request,'fdsadmin/volunteer.html')
+
+def donor_manage(request):
+    return  render(request,'fdsadmin/donor_manage.html')
+
+def volunteer_manage(request):
+    return  render(request,'fdsadmin/volunteer_manage.html')

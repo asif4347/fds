@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from volunteer.models import Volenteer
 from donor.models import Donor
 # Create your views here.
-
+from django.contrib.auth import logout as auth_logout
 
 def index(request):
     return render(request, 'home/index.html')
@@ -86,3 +86,6 @@ def login(request):
     return render(request,'login.html',{"err":err})
 
 
+def logout(request):
+    auth_logout(request)
+    return redirect('/home/login')
