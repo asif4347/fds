@@ -97,14 +97,45 @@ body {
     .container-fluid{
         background-color: white !important;
     }
+    .rating {
+    float:left;
+    width:300px;
+}
+{#.rating span { float:right; position:relative; }#}
+{#.rating span input {#}
+{#    position:absolute;#}
+{#    top:0px;#}
+{#    left:0px;#}
+{#    opacity:0;#}
+{#}#}
+{#.rating span label {#}
+{#    display:inline-block;#}
+{#    width:30px;#}
+{#    height:30px;#}
+{#    text-align:center;#}
+{#    color:#FFF;#}
+{#    background:#ccc;#}
+{#    font-size:30px;#}
+{#    margin-right:2px;#}
+{#    line-height:30px;#}
+{#    border-radius:50%;#}
+{#    -webkit-border-radius:50%;#}
+{#}#}
+{#.rating span:hover ~ span label,#}
+{#.rating span:hover label,#}
+{#.rating span.checked label,#}
+{#.rating span.checked ~ span label {#}
+{#    background:#F90;#}
+{#    color:#FFF;#}
+{#}#}
 </style>
- <span class="heading">User Rating</span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star"></span>
-<p>4.1 average based on 254 reviews.</p>
+{# <span class="heading">User Rating</span>#}
+{#<span class="fa fa-star checked"></span>#}
+{#<span class="fa fa-star checked"></span>#}
+{#<span class="fa fa-star checked"></span>#}
+{#<span class="fa fa-star checked"></span>#}
+{#<span class="fa fa-star"></span>#}
+<p>{{ avg }} average based on {{ total }} reviews.</p>
 <hr style="border:3px solid #f1f1f1">
 
 <div class="row">
@@ -117,18 +148,18 @@ body {
     </div>
   </div>
   <div class="side right">
-    <div>150</div>
+    <div id="r-5">150</div>
   </div>
   <div class="side">
     <div>4 star</div>
   </div>
   <div class="middle">
     <div class="bar-container">
-      <div class="bar-4"></div>
+      <div  class="bar-4"></div>
     </div>
   </div>
   <div class="side right">
-    <div>63</div>
+    <div id="r-4">63</div>
   </div>
   <div class="side">
     <div>3 star</div>
@@ -139,7 +170,7 @@ body {
     </div>
   </div>
   <div class="side right">
-    <div>15</div>
+    <div id="r-3">15</div>
   </div>
   <div class="side">
     <div>2 star</div>
@@ -150,7 +181,7 @@ body {
     </div>
   </div>
   <div class="side right">
-    <div>6</div>
+    <div id="r-2">6</div>
   </div>
   <div class="side">
     <div>1 star</div>
@@ -161,8 +192,66 @@ body {
     </div>
   </div>
   <div class="side right">
-    <div>20</div>
+    <div  id="r-1">20</div>
   </div>
 </div>
 
+<hr>
+    {% if user_rating %}
+        <h4>You have Already Rated the app.</h4>
+
+    {% endif %}
+{% if not user_rating %}
+    <small style="color: green;">{{ msg }}</small>
+    <h4>Please sumit your rating.</h4>
+
+ <form method="post">
+    {% csrf_token %}
+    <div class="rating">
+    <span ><input required type="radio" name="rating" id="str5"  value="5"><label for="str5">1 </label></span>
+    <span><input type="radio" name="rating" id="str4" value="4"><label for="str4">2 </label></span>
+    <span><input type="radio" name="rating" id="str3" value="3"><label for="str3">3 </label></span>
+    <span><input type="radio" name="rating" id="str2" value="2"><label for="str2">4 </label></span>
+    <span><input type="radio" name="rating" id="str1" value="1"><label for="str1">5 </label></span>
+    </div>
+ <button type="submit" class="btn btn-success">Save</button>
+     </form>
+{% endif %}
+    <div hidden id="rates">{{ rates }}</div>
+    <div hidden id="percents">{{ percents }}</div>
+
+
+<script>
+
+$(document).ready(function(){
+
+    // Check Radio-box
+    $(".rating input:radio").attr("checked", false);
+
+    $('.rating input').click(function () {
+        $(".rating span").removeClass('checked');
+        $(this).parent().addClass('checked');
+    });
+
+    $('input:radio').change(
+      function(){
+        var userRating = this.value;
+        //alert(userRating);
+    });
+    var rates=JSON.parse($('#rates').html())
+    console.log(rates)
+    var percents=JSON.parse($('#percents').html())
+    console.log(percents)
+    for(var i=0;i<5;i++){
+        var j=i+1
+        var cls='.bar-'+j
+        var div='#r-'+j
+        var atr='width:'+percents[i]+'%'
+        $(cls).attr('style',atr)
+        $(div).html(rates[i])
+        console.log(cls,atr)
+    }
+
+});
+</script>
 {% endblock %}

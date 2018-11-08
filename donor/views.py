@@ -1,9 +1,12 @@
+from math import floor, ceil, fsum
+
 from django.db.models import Count
 from django.shortcuts import render, redirect
 from .forms import FeedbackForm, FoodForm, ProfileForm
 from django.contrib.auth.decorators import login_required
 from .models import *
 from fdsadmin.models import Rating
+
 
 # Create your views here.
 
@@ -25,7 +28,7 @@ def profile(request):
     msg = ""
     form = ProfileForm(instance=donor)
     if request.method == "POST":
-        form = ProfileForm(request.POST,request.FILES, instance=donor)
+        form = ProfileForm(request.POST, request.FILES, instance=donor)
         if form.is_valid():
             form.save()
             msg = "Profile Updated Successfully"
@@ -65,15 +68,32 @@ def setting(request):
 
 @login_required
 def rating(request):
-    msg=""
-    if request.method=="POST":
-        rate=request.POST.get('rate',"")
-        rating=Rating()
-        rating.rate=rate
-        rating.user=request.user
+    msg = ""
+    user_rating = Rating.objects.filter(user=request.user)
+    all_ratings = Rating.objects.all()
+    total = all_ratings.__len__()
+    rates = [0, 0, 0, 0, 0]
+    sumRating = 0
+    for r in all_ratings:
+        sumRating = sumRating + r.rate
+        rates[r.rate - 1] += 1
+    percents = [0, 0, 0, 0, 0]
+    i = 0
+    for n in rates:
+        percents[i] = ceil((n / total) * 100)
+        i += 1
+
+    print(rates, sumRating / total, percents)
+    if request.method == "POST":
+        rate = request.POST.get('rating', "")
+        rating = Rating()
+        rating.rate = rate
+        rating.user = request.user
         rating.save()
-        msg="Thank you for rating us!"
-    return render(request, 'donor/rating.html',{'msg':msg})
+        msg = "Thank you for rating us!"
+    return render(request, 'donor/rating.html',
+                  {'msg': msg, 'user_rating': user_rating, 'avg': sumRating / total, 'total': total, 'rates': rates,
+                   'percents': percents})
 
 
 @login_required
