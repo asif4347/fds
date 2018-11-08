@@ -59,23 +59,6 @@
     var fastData=JSON.parse(document.getElementById('fast-food').innerText)
     var regularData=JSON.parse(document.getElementById('regular-food').innerText)
 
-    var fst=[]
-    fastData.forEach(function (ele) {
-        var data={
-            x:ele.x,
-            y:ele.y
-        }
-        fst.push(data)
-    })
-    var rgl=[]
-    regularData.forEach(function (ele) {
-        var data={
-            x:ele.x,
-            y:ele.y
-        }
-        rgl.push(data)
-    })
-    console.log(rgl)
     var timeFormat = 'YYYY-MM-DD';
 
     var config = {
@@ -84,13 +67,13 @@
             datasets: [
                 {
                     label: "Fast Food",
-                    data: fst,
+                    data: fastData,
                     fill: false,
                     borderColor: '#26C6DA'
                 },
                 {
                     label: "Regular Food",
-                    data:  rgl,
+                    data:  regularData,
                     fill:  false,
                     borderColor: '#1E88E5'
                 }
