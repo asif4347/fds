@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 import datetime
 from django.utils.timezone import now
 # Create your models here.
-
+from volunteer.models import Volenteer
 gender={
     ("Male","Male"),
     ("Female","Female"),
@@ -46,7 +46,7 @@ class Food(models.Model):
     status=models.CharField(choices=choices,max_length=10,default='New Entry')
     location=models.CharField(max_length=200,blank=True,null=True)
     image=models.ImageField(blank=True,null=True)
-
+    volunteer=models.ForeignKey(Volenteer,on_delete=models.SET_NULL,null=True)
     def __str__(self):
         return self.food_type
 

@@ -12,7 +12,8 @@ class ProfileForm(ModelForm):
             'country',
             "mobile",
             "area_name",
-            'gender'
+            'gender',
+            'image'
 
         )
 

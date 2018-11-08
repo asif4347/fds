@@ -27,7 +27,7 @@
                                     <table class="table table-hover table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
+
                                                 <th>Food Title</th>
                                                 <th>Quantity</th>
                                                 <th>Date</th>
@@ -38,97 +38,57 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>11" Pizza</td>
-                                                <td>3 People</td>
-                                                <td>2018-05-12</td>
+                                        {% for food in foods %}
+                                            {% if food.status == 'Delivered' %}
+
+                                                <tr style="background-color: aquamarine">
+
+                                                <td>{{ food.food_title }}</td>
+                                                <td>{{ food.quantity }} People</td>
+                                                <td>{{ food.post_date }}</td>
                                                 <td>
                                                     <a href="{% url 'volunteer-map' %}">Navigate</a>
                                                 </td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option>--Select--</option>
-                                                        <option><i class="btn-outline-primary mdi mdi-check"> Picked</i></option>
-                                                        <option><i class="btn-outline-success mdi mdi-check-all"> Donated</i></option>
-                                                    </select>
-                                                    </td>
-                                                <td>
-                                                    <select class="form-control form-control-line" >
+                                                <td>{{ food.status }}</td>
+                                                <td>{{ food.delivered_at }}</td><td></td>
+                                                </tr>
+                                            {% endif %}
+                                            {% if food.status != 'Delivered' %}
+                                                <tr>
 
-                                                <option>Johar Town</option>
-                                                <option>Faisal Town</option>
-                                                <option>Wapda Town</option>
-                                                <option>Model Town</option>
-                                                <option>Sman Abad</option>
-                                            </select>
-                                                </td>
-                                                <td>
-
-                                                    <button  data-toggle="modal" data-target="#deleteModal" class="btn btn-primary"><i class="fa fa-check-o"></i> Save</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Alu Matar</td>
-                                                <td>4 People</td>
-                                                <td>2018-05-12</td>
+                                                <td>{{ food.food_title }}</td>
+                                                <td>{{ food.quantity }} People</td>
+                                                <td>{{ food.post_date }}</td>
                                                 <td>
                                                     <a href="{% url 'volunteer-map' %}">Navigate</a>
                                                 </td>
-
+                                            <form method="post">
+                                            {% csrf_token %}
+                                            <input name="foodId" value="{{ food.id }}" hidden>
                                                 <td>
-                                                    <select class="form-control">
-                                                        <option>--Select--</option>
+                                                    <select name="status" class="form-control">
+                                                        <option value="{{ food.status }}">{{ food.status }}</option>
                                                         <option><i class="btn-outline-primary mdi mdi-check"> Picked</i></option>
-                                                        <option><i class="btn-outline-success mdi mdi-check-all"> Donated</i></option>
+                                                        <option><i class="btn-outline-success mdi mdi-check-all"> Delivered</i></option>
                                                     </select>
                                                     </td>
                                                 <td>
-                                                    <select class="form-control form-control-line" >
-
-                                                <option>Johar Town</option>
-                                                <option>Faisal Town</option>
-                                                <option>Wapda Town</option>
-                                                <option>Model Town</option>
-                                                <option>Sman Abad</option>
-                                            </select>
-                                                </td>
-                                                <td>
-
-                                                    <button  data-toggle="modal" data-target="#deleteModal" class="btn btn-primary"><i class="fa fa-check-o"></i> Save</button>
-                                                </td>
-                                            </tr>
-                                        <tr>
-                                                <td>3</td>
-                                                <td>Chicken Bhindi</td>
-                                                <td>2 People</td>
-                                                <td>2018-05-12</td>
-                                            <td>
-                                                    <a href="{% url 'volunteer-map' %}">Navigate</a>
-                                                </td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option>--Select--</option>
-                                                        <option><i class="btn-outline-primary mdi mdi-check"> Picked</i></option>
-                                                        <option><i class="btn-outline-success mdi mdi-check-all"> Donated</i></option>
+                                                    <select name="location" class="form-control form-control-line" >
+                                                    <option value="">--select--</option>
+                                                           {% for location in volunteer.pick_locations.all %}
+                                                                    <option value="{{ location }}">{{ location }}</option>
+                                                           {% endfor %}
                                                     </select>
-                                                    </td>
-                                                <td>
-                                                    <select class="form-control form-control-line" >
-
-                                                <option>Johar Town</option>
-                                                <option>Faisal Town</option>
-                                                <option>Wapda Town</option>
-                                                <option>Model Town</option>
-                                                <option>Sman Abad</option>
-                                            </select>
                                                 </td>
                                                 <td>
 
-                                                    <button  data-toggle="modal" data-target="#deleteModal" class="btn btn-primary"><i class="fa fa-check-o"></i> Save</button>
+                                                    <button type="submit" class="btn btn-primary"><i class="fa fa-check-o"></i> Save</button>
                                                 </td>
+                                            </form>
                                             </tr>
+                                            {% endif %}
+
+                                        {% endfor %}
                                         </tbody>
                                     </table>
                                 </div>

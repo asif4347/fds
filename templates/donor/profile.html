@@ -22,9 +22,14 @@
                     <div class="col-lg-4 col-xlg-3 col-md-5">
                         <div class="card">
                             <div class="card-block">
-                                <center class="m-t-30"> <img src="{% static 'Panel/assets/images/users/Capture.PNG' %}" class="img-circle" width="150" />
-                                    <center><button><i class="fa fa-camera"></i></button></center>
-                                    <h4 class="card-title m-t-10">{{ name }}</h4>
+                                <center class="m-t-30">
+                                    {% if user.image %}
+                                        <img src="{{ user.image.url }}" class="img-circle" width="150" />
+                                    {% endif %}
+                                {% if not user.image %}
+                                    <img src="{% static 'images/Student-64.png' %}" class="img-circle" width="150" />
+                                {% endif %}
+                                    <h4 class="card-title m-t-10">{{ user.name }}</h4>
 {#                                    <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>#}
                                     <div class="row text-center justify-content-md-center">
                                         <div class="col-4"><a href="javascript:void(0)" class="link">Donations: {{ donations }}</a></div>
@@ -37,13 +42,11 @@
                     <!-- Column -->
                     <!-- Column -->
                     <div class="col-lg-8 col-xlg-9 col-md-7">
-                        <div class="card" style="left: 168px;
-                          margin-right: 338px;
-                          border-bottom-width: 30px; background-color: white;">
+                        <div class="card" style=" background-color: white;">
                             <div class="card-block" style="margin-left: 32px;
                               padding-right: 34px; color: black;">
                                 <small style="color: green">{{ msg }}</small>
-                                <form method="post" class="form-horizontal form-material">
+                                <form method="post" enctype="multipart/form-data" class="form-horizontal form-material">
                                      {% csrf_token %}
                                    {% include 'form.html' %}
 

@@ -8,4 +8,6 @@ urlpatterns=[
     url(r'^map$',views.map,name='volunteer-map'),
     url(r'^request$', views.request, name='volunteer-request'),
     url(r'^setting$', views.setting, name='volunteer-setting'),
+    url(r'food/(?P<pk>\d+)/accept', views.accept_food, name='accept-food'),
+
 ]

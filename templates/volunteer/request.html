@@ -27,7 +27,7 @@
                                     <table class="table table-hover table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
+
                                                 <th>Food Title</th>
                                                 <th>Quantity</th>
                                                 <th>Date</th>
@@ -38,62 +38,27 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        {% for food in foods %}
                                             <tr>
-                                                <td>1</td>
-                                                <td>11" Pizza</td>
-                                                <td>3 People</td>
-                                                <td>2018-05-12</td>
+
+                                                <td>{{ food.food_title }}</td>
+                                                <td>{{ food.quantity }} People</td>
+                                                <td>{{ food.post_date }}</td>
                                                 <td>
                                                     <a href="{% url 'volunteer-map' %}">Navigate</a>
                                                 </td>
 
                                                 <td>
 
-                                                    <button  data-toggle="modal" data-target="#acceptModal" class="btn btn-primary"><i class="fa fa-check-o"></i> Accept</button>
+                                                    <button onclick="acceptFun({{ food.id }})" data-toggle="modal" data-target="#acceptModal" class="btn btn-primary"><i class="fa fa-check-o"></i> Accept</button>
 
 
 
-                                                    <button  data-toggle="modal" data-target="#rejectModal" class="btn btn-primary"><i class="fa fa-check-o"></i> Reject</button>
+{#                                                    <a href="#" data-toggle="modal" data-target="#rejectModal" class="btn btn-danger"><i class="fa fa-check-o"></i> Reject</a>#}
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Alu Matar</td>
-                                                <td>4 People</td>
-                                                <td>2018-05-12</td>
-                                                <td>
-                                                    <a href="{% url 'volunteer-map' %}">Navigate</a>
-                                                </td>
+                                        {% endfor %}
 
-
-
-                                                  <td>
-
-                                                    <button  data-toggle="modal" data-target="#acceptModal" class="btn btn-primary"><i class="fa fa-check-o"></i> Accept</button>
-
-
-
-                                                    <button  data-toggle="modal" data-target="#rejectModal" class="btn btn-primary"><i class="fa fa-check-o"></i> Reject</button>
-                                                </td>
-                                            </tr>
-                                        <tr>
-                                                <td>3</td>
-                                                <td>Chicken Bhindi</td>
-                                                <td>2 People</td>
-                                                <td>2018-05-12</td>
-                                            <td>
-                                                    <a href="{% url 'volunteer-map' %}">Navigate</a>
-                                                </td>
-
-                                                  <td>
-
-                                                    <button  data-toggle="modal" data-target="#acceptModal" class="btn btn-primary"><i class="fa fa-check-o"></i> Accept</button>
-
-
-
-                                                    <button  data-toggle="modal" data-target="#rejectModal" class="btn btn-primary"><i class="fa fa-check-o"></i> Reject</button>
-                                                </td>
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -138,10 +103,17 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">accept</button>
+        <a href="#" id="acceptBtn"  class="btn btn-primary">Accept</a>
       </div>
     </div>
   </div>
 </div>
-
+<script>
+    function acceptFun(id) {
+        //alert(id)
+        var link='/volunteer/food/'+id+'/accept'
+        $("#acceptBtn").attr('href',link)
+       //link.href= '/volunteer/food/'+id+'accept'
+    }
+</script>
 {% endblock %}

@@ -28,7 +28,6 @@
                                     <table class="table table-hover table-striped table-bordered">
                                         <thead>
                                             <tr>
-
                                                 <th>Food Title</th>
                                                 <th>Food Type</th>
                                                 <th>Quantity</th>
@@ -52,10 +51,10 @@
                                                     {% if food.status == "Picked" %}
                                                     <i class="btn-outline-primary mdi mdi-check"> {{ food.status }}</i>
                                                     {% endif %}
-                                                {% if food.status == "New Entry" %}
+                                                    {% if food.status == "New Entry" %}
                                                     <i class="btn-outline-warning mdi mdi-timer"> {{ food.status }}</i>
                                                     {% endif %}{% if food.status == "Delivered" %}
-                                                    <i class="btn-outline-success mdi mdi-check"> {{ food.status }}</i>
+                                                    <i class="btn-outline-success mdi mdi-check-all"> {{ food.status }}</i>
                                                     {% endif %}
                                                 </td>
                                                 <td>{{ food.delivered_at }}</td>
@@ -88,7 +87,7 @@
         </button>
       </div>
       <div class="modal-body">
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
     {% include 'form.html' %}
 <br><br>
