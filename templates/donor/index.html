@@ -16,9 +16,16 @@
 {% endblock %}
 
 {% block main %}
-    {% for data in fast %}
-        <li>{{ data.count }}</li>
-    {% endfor %}
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+{#    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>#}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.js"></script>
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
      <!-- Row -->
                 <div class="row">
                     <!-- Column -->
@@ -36,13 +43,96 @@
                                                     <li>
                                                         <h6 class="text-muted text-success"><i class="fa fa-circle font-10 m-r-10 "></i>Fast Food</h6> </li>
                                                     <li>
-                                                        <h6 class="text-muted  text-info"><i class="fa fa-circle font-10 m-r-10"></i>REgular Food</h6> </li>
+                                                        <h6 class="text-muted  text-info"><i class="fa fa-circle font-10 m-r-10"></i>Regular Food</h6> </li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <div class="amp-pxl" style="height: 360px;"></div>
+
+<div style="width:75%;">
+    <canvas id="canvas"></canvas>
+</div>
+                                        <div hidden id="fast-food">{{ fast }}</div>
+                                        <div hidden id="regular-food">{{ regular }}</div>
+<script>
+    var fastData=JSON.parse(document.getElementById('fast-food').innerText)
+    var regularData=JSON.parse(document.getElementById('regular-food').innerText)
+
+    var fst=[]
+    fastData.forEach(function (ele) {
+        var data={
+            x:ele.x,
+            y:ele.y
+        }
+        fst.push(data)
+    })
+    var rgl=[]
+    regularData.forEach(function (ele) {
+        var data={
+            x:ele.x,
+            y:ele.y
+        }
+        rgl.push(data)
+    })
+    console.log(rgl)
+    var timeFormat = 'YYYY-MM-DD';
+
+    var config = {
+        type:    'line',
+        data:    {
+            datasets: [
+                {
+                    label: "Fast Food",
+                    data: fst,
+                    fill: false,
+                    borderColor: '#26C6DA'
+                },
+                {
+                    label: "Regular Food",
+                    data:  rgl,
+                    fill:  false,
+                    borderColor: '#1E88E5'
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            title:      {
+                display: true,
+                text:    "Daily Donation Summary"
+            },
+            scales:     {
+                xAxes: [{
+                    type:       "time",
+                    time:       {
+                        format: timeFormat,
+                        tooltipFormat: 'll'
+                    },
+                    scaleLabel: {
+                        display:     true,
+                        labelString: 'Date'
+                    }
+                }],
+                yAxes: [{
+                    scaleLabel: {
+                        display:     true,
+                        labelString: 'Donations'
+                    }
+                }]
+            }
+        }
+    };
+
+    window.onload = function () {
+        var ctx       = document.getElementById("canvas").getContext("2d");
+        window.myLine = new Chart(ctx, config);
+    };
+
+</script>
+
+
+{#                                        <div class="amp-pxl" style="height: 360px;"></div>#}
                                     </div>
                                 </div>
                             </div>

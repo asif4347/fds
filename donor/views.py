@@ -6,19 +6,36 @@ from .forms import FeedbackForm, FoodForm, ProfileForm
 from django.contrib.auth.decorators import login_required
 from .models import *
 from fdsadmin.models import Rating
-
-
+import json
 # Create your views here.
+
 
 @login_required
 def index(request):
     donor = Donor.objects.get(user=request.user)
     donations = Food.objects.filter(donor=donor)
     fast = donations.filter(food_type='Fast Food').extra({'post_date': "date(post_date)"}).values('post_date').annotate(
-        count=Count('id'))
+        y=Count('id'))
     regular = donations.filter(food_type='Regular Food').extra({'post_date': "date(post_date)"}).values(
-        'post_date').annotate(count=Count('id'))
-    return render(request, 'donor/index.html', {'fast': fast, 'regular': regular})
+        'post_date').annotate(y=Count('id'))
+    fast_food=[]
+    fast_list=list(fast)
+    for d in fast_list:
+        data = {
+            "x": d["post_date"],
+            "y": d["y"]
+        }
+        fast_food.append(data)
+    regular_list=list(regular)
+    regular_food=[]
+    for d in regular_list:
+        data={
+            "x":d["post_date"],
+            "y":d["y"]
+        }
+        regular_food.append(data)
+    print(regular_food,fast_food)
+    return render(request, 'donor/index.html', {'fast':json.dumps(fast_food), 'regular': json.dumps(regular_food)})
 
 
 @login_required
