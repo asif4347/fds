@@ -1,5 +1,4 @@
 from math import floor, ceil, fsum
-
 from django.db.models import Count
 from django.shortcuts import render, redirect
 from .forms import FeedbackForm, FoodForm, ProfileForm
@@ -58,14 +57,10 @@ def foods(request):
     food_list = Food.objects.filter(donor=donor)
     if request.method == "POST":
         form = FoodForm(request.POST, request.FILES)
+        image = request.FILES.get('image')
+        print(image)
         if form.is_valid():
-            food = Food()
-            food.food_title = form.cleaned_data.get('food_title')
-            food.food_type = form.cleaned_data.get('food_type')
-            food.preparation_date = form.cleaned_data.get('preparation_date')
-            food.post_date = form.cleaned_data.get('post_date')
-            food.quantity = form.cleaned_data.get('quantity')
-            food.save()
+            food=form.save()
             food.donor.add(donor)
             food.save()
     else:
@@ -139,6 +134,7 @@ def update(request, pk):
     food = Food.objects.get(pk=pk)
     if request.method == "POST":
         form = FoodForm(request.POST, request.FILES, instance=food)
+
         if form.is_valid():
             form.save()
             return redirect('donor-foods')
