@@ -32,10 +32,17 @@
                                     <h4 class="card-title m-t-10">{{ user.name }}</h4>
 {#                                    <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>#}
                                     <div class="row text-center justify-content-md-center">
-                                        <div class="col-4"><a href="javascript:void(0)" class="link">Donations: {{ donations }}</a></div>
+                                        <div class="col-4"><a href="javascript:void(0)" class="link">Donations: {{ donations }}</a>
+
+                                          </div>
+
+
 
                                     </div>
                                 </center>
+                            <center>
+                            <a href="{% url 'change_password' %}"><i class="mdi mdi-key"></i> Change Password</a>
+                            </center>
                             </div>
                         </div>
                     </div>
