@@ -10,3 +10,19 @@ class FoodSaveForm(ModelForm):
             'status',
             'delivered_at'
         )
+
+
+class ProfileForm(ModelForm):
+    class Meta:
+        model=Volenteer
+        fields=(
+            "name",
+            "address",
+            'city',
+            'country',
+            "mobile",
+            'gender',
+            'pick_locations',
+            'image',
+
+        )

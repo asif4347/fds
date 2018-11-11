@@ -107,7 +107,7 @@
                             <!-- item--><a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail" style="
                                      margin-right: 46px;"></i></a>
 
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{% static 'Panel/assets/images/users/Capture.PNG' %}" alt="user" class="profile-pic m-r-10" />Javaid Dogar</a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{ request.session.pic }}" alt="user" class="profile-pic m-r-10" />{{ user.first_name }}</a>
                         <!-- item--><a href="/home/logout" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
                         </li>
                     </ul>

@@ -27,7 +27,7 @@
                                     <table class="table table-hover table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
+
                                                 <th>Name</th>
                                                 <th>Address</th>
                                                 <th>Email</th>
@@ -35,46 +35,17 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        {% for volun in volunteers %}
                                             <tr>
-                                                <td>1</td>
-                                                <td>Ali</td>
-                                                <td>Lahore</td>
-                                                <td>ali123@gmail.com</td>
 
-
-
+                                                <td>{{ volun.name }}</td>
+                                                <td>{{ volun.address }}</td>
+                                                <td>{{ volun.user.email }}</td>
                                                 <td>
-
-                                                   <a href="{% url 'fdsadmin-view-volunteers' %}"   class="btn btn-primary"><i class="fa fa-check-o"></i>View PickUps</a>
+                                                   <a href="{% url 'fdsadmin-view-volunteers' volun.pk %}"   class="btn btn-primary"><i class="fa fa-check-o"></i>View PickUps</a>
                                                 </td>
                                             </tr>
-                                        <tr>
-                                                <td>2</td>
-                                                <td>javaid</td>
-                                                <td>Lahore</td>
-                                                <td>javaid123@gmail.com</td>
-
-
-
-                                                <td>
-
-                                                   <a href="{% url 'fdsadmin-view-volunteers' %}"   class="btn btn-primary"><i class="fa fa-check-o"></i>View PickUps</a>
-                                                </td>
-                                            </tr>
-                                        <tr>
-                                                <td>3</td>
-                                                <td>Aqsa</td>
-                                                <td>Lahore</td>
-                                                <td>Aqsa123@gmail.com</td>
-
-
-
-                                                <td>
-
-                                                   <a href="{% url 'fdsadmin-view-volunteers' %}"   class="btn btn-primary"><i class="fa fa-check-o"></i>View PickUps</a>
-                                                </td>
-                                            </tr>
-
+                                        {% endfor %}
 
                                         </tbody>
                                     </table>

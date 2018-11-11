@@ -24,10 +24,10 @@
                             <div class="card-block">
                                 <h4 class="card-title">All comments</h4>
                                 <div class="table-responsive">
-                                    <table class="table table-hover table-striped table-bordered">
+                                    <table id="myTable" class="table table-hover table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
+
                                                 <th>Name</th>
                                                 <th>Email</th>
                                                 <th>Comment</th>
@@ -36,11 +36,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        {% for feedback in feedbacks %}
                                             <tr>
-                                                <td>1</td>
-                                                <td>Ali</td>
-                                                <td>ali123@gmail.com</td>
-                                                <td>Helo...How are you?</td>
+
+                                                <td>{{ feedback.full_name }}</td>
+                                                <td>{{ feedback.email }}</td>
+                                                <td>{{ feedback.comment }}</td>
 
 
 
@@ -51,37 +52,7 @@
                                                    <a href="#" data-toggle="modal" data-target="#reply"   class="btn btn-primary"><i class="fa fa-check-o"></i>Reply</a>
                                                 </td>
                                             </tr>
-                                         <tr>
-                                                <td>2</td>
-                                                <td>javaid</td>
-                                                <td>javaid123@gmail.com</td>
-                                                <td>Helo...How are you?</td>
-
-
-
-                                                <td>
-
-                                                <a href="#"   class="btn btn-primary"><i class="fa fa-check-o"></i>Delete</a>
-
-                                                   <a href="#" data-toggle="modal" data-target="#reply"  class="btn btn-primary"><i class="fa fa-check-o"></i>Reply</a>
-                                                </td>
-                                            </tr>
-                                          <tr>
-                                                <td>3</td>
-                                                <td>Aqsa</td>
-                                                <td>aqsa123@gmail.com</td>
-                                                <td>Helo...How are you...<a href="#">View More</a></td>
-
-
-
-                                                <td>
-
-                                                <a href="#"   class="btn btn-primary"><i class="fa fa-check-o"></i>Delete</a>
-
-                                                   <a href="#" data-toggle="modal" data-target="#reply"   class="btn btn-primary"><i class="fa fa-check-o"></i>Reply</a>
-                                                </td>
-                                            </tr>
-
+                                        {% endfor %}
 
                                         </tbody>
                                     </table>

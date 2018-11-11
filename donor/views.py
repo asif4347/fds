@@ -13,6 +13,7 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.shortcuts import render, redirect
 
+@login_required
 def change_password(request):
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
@@ -28,6 +29,8 @@ def change_password(request):
     return render(request, 'donor/change_password.html', {
         'form': form
     })
+
+
 @login_required
 def index(request):
     donor = Donor.objects.get(user=request.user)

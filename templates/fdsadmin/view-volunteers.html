@@ -23,12 +23,12 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-block">
-                                <h4 class="card-title">All Pickups</h4>
+                                <h4 class="card-title">All Pickups by {{ volunteer.name }}</h4>
                                 <div class="table-responsive">
-                                    <table class="table table-hover table-striped table-bordered">
+                                    <table id="myTable" class="table table-hover table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
+
                                                 <th>Food Title</th>
                                                 <th>Quantity</th>
                                                 <th>Date</th>
@@ -38,43 +38,29 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        {% for food in pickups %}
                                             <tr>
 
-                                                <td>1</td>
-                                                <td>11" Pizza</td>
-                                                <td>3 People</td>
-                                                <td>2018-05-12</td>
-
-
-                                                 <td>Picked</td>
-                                                <td>Johar Town</td>
-
-                                            </tr>
-
-                                         <tr>
-
-                                                <td>2</td>
-                                                <td>Alu Matar</td>
-                                                <td>2 People</td>
-                                                <td>22-05-2018</td>
-
-
-                                                 <td>Delivered</td>
-                                                <td>Faisal Town</td>
+                                                <td>{{ food.food_title }}</td>
+                                                <td>{{ food.food_type }}</td>
+                                                <td>{{ food.quantity }} People</td>
+                                                <td>{{ food.preparation_date }}</td>
+                                                <td>{{ food.post_date }}</td>
+                                                <td>
+                                                    {% if food.status == "Picked" %}
+                                                    <i class="btn-outline-primary mdi mdi-check"> {{ food.status }}</i>
+                                                    {% endif %}
+                                                    {% if food.status == "New Entry" %}
+                                                    <i class="btn-outline-warning mdi mdi-timer"> {{ food.status }}</i>
+                                                    {% endif %}{% if food.status == "Delivered" %}
+                                                    <i class="btn-outline-success mdi mdi-check-all"> {{ food.status }}</i>
+                                                    {% endif %}
+                                                </td>
+                                                <td>{{ food.delivered_at }}</td>
 
                                             </tr>
-                                         <tr>
+                                        {% endfor %}
 
-                                                <td>3</td>
-                                                <td>Regular Food</td>
-                                                <td>5 People</td>
-                                                <td>20-06-2018</td>
-
-
-                                                 <td>Picked</td>
-                                                <td>Model Town</td>
-
-                                            </tr>
                                         </tbody>
 
                                     </table>

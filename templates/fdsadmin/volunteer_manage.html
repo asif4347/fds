@@ -14,6 +14,7 @@
 
                 </div>
 {% endblock %}
+
 {% block main %}
     <!-- Start Page Content -->
                 <!-- ============================================================== -->
@@ -27,72 +28,39 @@
                                     <table class="table table-hover table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
+
                                                 <th>Name</th>
                                                 <th>Email</th>
                                                 <th>Address</th>
-                                                 <th>Role AS</th>
+
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        {% for donor in volunteers %}
+
                                             <tr>
-                                                <td>1</td>
-                                                <td>javaid</td>
-                                                <td>jeydogar@gmail.com</td>
-                                                <td>243-C block,Model Town,Lahore</td>
-                                                <td>Volunteer</td>
 
+                                                <td>{{ donor.name }}</td>
+                                                <td>{{ donor.user.email }}</td>
+                                                <td>{{ donor.address }}</td>
 
-
-                                                     <td>
-
-                                                    <button  data-toggle="modal" data-target="#block" class="btn btn-primary"><i class="fa fa-check-o"></i> Block</button>
-
-
-
-                                                    <button  data-toggle="modal" data-target="#delete" class="btn btn-primary"><i class="fa fa-check-o"></i> Delete</button>
-                                                </td>
-
-                                            </tr>
-                                         <tr>
-                                                <td>2</td>
-                                                <td>Aqsa Umar</td>
-                                                <td>aqsaumar123@gmail.com</td>
-                                                <td>456-B block,Johar Town,Lahore</td>
-                                                <td>Volunteer</td>
 
 
 
                                                      <td>
+                                                    {% if donor.user.is_active %}
+                                                    <button onclick="block_user('{{ donor.user.username }}')"  data-toggle="modal" data-target="#block" class="btn btn-primary"><i class="fa fa-check-o"></i> Block</button>
+                                                         {% endif %}
+                                                    {% if not donor.user.is_active %}
+                                                    <a href="{% url 'unblock-account' donor.user.username %}"  class="btn btn-primary"><i class="fa fa-check-o"></i> Unblock</a>
+                                                         {% endif %}
 
-                                                    <button  data-toggle="modal" data-target="#block" class="btn btn-primary"><i class="fa fa-check-o"></i> Block</button>
-
-
-
-                                                    <button  data-toggle="modal" data-target="#delete" class="btn btn-primary"><i class="fa fa-check-o"></i> Delete</button>
+                                                    <button onclick="delete_user('{{ donor.user.username }}')" data-toggle="modal" data-target="#delete" class="btn btn-primary"><i class="fa fa-check-o"></i> Delete</button>
                                                 </td>
 
                                             </tr>
-                                         <tr>
-                                                <td>3</td>
-                                                <td>Zeenat</td>
-                                                <td>zeenat123456@gmail.com</td>
-                                                <td>243-A block,faisal Town,Lahore</td>
-                                                <td>Volunteer</td>
-
-
-
-                                                     <td>
-
-                                                    <button  data-toggle="modal" data-target="#block" class="btn btn-primary"><i class="fa fa-check-o"></i> Block</button>
-
-
-
-                                                    <button  data-toggle="modal" data-target="#delete" class="btn btn-primary"><i class="fa fa-check-o"></i> Delete</button>
-                                                </td>
-
-                                            </tr>
+                                        {% endfor %}
 
                                         </tbody>
                                     </table>
@@ -119,7 +87,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Block</button>
+        <a href="#" id="bLink" type="button" class="btn btn-danger">Block</a>
       </div>
     </div>
   </div>
@@ -134,15 +102,27 @@
         </button>
       </div>
       <div class="modal-body">
+          <p><b style="color: red">Warning: </b>If you delete this user all the coresponding data will be lost permanently.</p>
             <h3>Are you sure you want to Delete Account it?</h3>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Delete</button>
+        <a href="#" id="dLink" type="button" class="btn btn-danger">Delete</a>
       </div>
     </div>
   </div>
 </div>
 
-
+<script>
+function block_user(username) {
+    //console.log(username)
+    var link='/fdsadmin/block-user/'+username
+    $('#bLink').attr('href',link)
+}
+function delete_user(username) {
+    //console.log(username)
+    var link='/fdsadmin/delete-user/'+username
+    $('#dLink').attr('href',link)
+}
+</script>
 {% endblock %}

@@ -5,6 +5,7 @@ from fdsadmin.models import Contact
 from django.contrib.auth.models import User
 from volunteer.models import Volenteer
 from donor.models import Donor
+from fdsadmin.models import *
 # Create your views here.
 from django.contrib.auth import logout as auth_logout
 
@@ -22,10 +23,12 @@ def register(request):
             user = authenticate(username=username, password=raw_password)
             thisUser=User.objects.get(username=username)
             thisUser.email=request.POST.get("email","")
+            name = request.POST.get("name", "")
+            thisUser.first_name=name
             thisUser.save()
             auth_login(request, user)
             role=request.POST.get("role","")
-            name=request.POST.get("name","")
+
             if role=="Volunteer":
                 volunteer=Volenteer()
                 volunteer.name=name
@@ -73,13 +76,17 @@ def login(request):
         if user:
             auth_login(request,user)
             thisUser = User.objects.get(username=username)
-            volunteer=Volenteer.objects.filter(user=thisUser)
-            donor=Donor.objects.filter(user=thisUser)
+            volunteer=Volenteer.objects.filter(user=thisUser).first()
+            donor=Donor.objects.filter(user=thisUser).first()
             if volunteer:
+                request.session['pic']=volunteer.image.url
                 return redirect('volunteer-index')
             if donor:
+                request.session['pic'] = donor.image.url
                 return redirect('donor-index')
             else:
+                fds=FdsAdmin.objects.filter(user=thisUser).first()
+                request.session['pic'] = fds.image.url
                 return redirect('fdsadmin-index')
         else:
             err="username or password is incorrect!"

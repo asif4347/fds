@@ -18,17 +18,16 @@
 {% block main %}
     <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <div class="row">
+                 <div class="row">
                     <!-- column -->
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-block">
-
-                                <div class="table-responsive">
-                                    <table class="table table-hover table-striped table-bordered">
+                                <h4 class="card-title">All Foods for {{ donor.name }}</h4>
+                                                               <div class="table-responsive">
+                                    <table id="myTable" class="table table-hover table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
                                                 <th>Food Title</th>
                                                 <th>Food Type</th>
                                                 <th>Quantity</th>
@@ -40,37 +39,29 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        {% for food in foods %}
                                             <tr>
-                                                <td>1</td>
-                                                <td>11" Pizza</td>
-                                                <td>Fast Food</td>
-                                                <td>3 People</td>
-                                                <td>2018-05-12</td>
-                                                <td>2018-05-13</td>
-                                                <td><i class="btn-outline-primary mdi mdi-check"> Picked</i></td>
-                                                <td>NAN</td>
+
+                                                <td>{{ food.food_title }}</td>
+                                                <td>{{ food.food_type }}</td>
+                                                <td>{{ food.quantity }} People</td>
+                                                <td>{{ food.preparation_date }}</td>
+                                                <td>{{ food.post_date }}</td>
+                                                <td>
+                                                    {% if food.status == "Picked" %}
+                                                    <i class="btn-outline-primary mdi mdi-check"> {{ food.status }}</i>
+                                                    {% endif %}
+                                                    {% if food.status == "New Entry" %}
+                                                    <i class="btn-outline-warning mdi mdi-timer"> {{ food.status }}</i>
+                                                    {% endif %}{% if food.status == "Delivered" %}
+                                                    <i class="btn-outline-success mdi mdi-check-all"> {{ food.status }}</i>
+                                                    {% endif %}
+                                                </td>
+                                                <td>{{ food.delivered_at }}</td>
 
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Alu Matar</td>
-                                                <td>Regular Food</td>
-                                                <td>4 People</td>
-                                                <td>2018-05-12</td>
-                                                <td>2018-05-13</td>
-                                                <td><i class="btn-outline-warning mdi mdi-timer"> New Entry</i></td>
-                                                    <td>NAN</td>
-                                            </tr>
-                                        <tr>
-                                                <td>3</td>
-                                                <td>Chicken Bhindi</td>
-                                                <td>Regular Food</td>
-                                                <td>2 People</td>
-                                                <td>2018-05-12</td>
-                                                <td>2018-05-14</td>
-                                                <td><i class="btn-outline-success mdi mdi-check-all"> Delivered</i></td>
-                                                  <td>Faisal Town Branch</td>
-                                            </tr>
+                                        {% endfor %}
+
                                         </tbody>
                                     </table>
                                 </div>
