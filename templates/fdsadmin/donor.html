@@ -22,77 +22,40 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-block">
-                                <h4 class="card-title">Send Requests</h4>
+                                <h4 class="card-title">Account Approval</h4>
                                 <div class="table-responsive">
                                     <table class="table table-hover table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
+
                                                 <th>Name</th>
                                                 <th>Email</th>
                                                 <th>Address</th>
-                                                 <th>Request AS</th>
+
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        {% for donor in donors %}
+
                                             <tr>
-                                                <td>1</td>
-                                                <td>javaid</td>
-                                                <td>jeydogar@gmail.com</td>
-                                                <td>243-C block,Model Town,Lahore</td>
-                                                <td>Donor</td>
 
+                                                <td>{{ donor.name }}</td>
+                                                <td>{{ donor.user.email }}</td>
+                                                <td>{{ donor.address }}</td>
 
-
-                                                     <td>
-
-                                                    <button  data-toggle="modal" data-target="#approveaccount" class="btn btn-primary"><i class="fa fa-check-o"></i> Approve</button>
-
-
-
-                                                    <button  data-toggle="modal" data-target="#disapproveaccount" class="btn btn-primary"><i class="fa fa-check-o"></i> DisApprove</button>
-                                                </td>
-
-                                            </tr>
-                                         <tr>
-                                                <td>2</td>
-                                                <td>Aqsa Umar</td>
-                                                <td>aqsaumar123@gmail.com</td>
-                                                <td>456-B block,Johar Town,Lahore</td>
-                                                <td>Donor</td>
 
 
 
                                                      <td>
 
-                                                    <button  data-toggle="modal" data-target="#approveaccount" class="btn btn-primary"><i class="fa fa-check-o"></i> Approve</button>
+                                                    <button onclick="approve_user('{{ donor.user.username }}')"  data-toggle="modal" data-target="#block" class="btn btn-primary"><i class="fa fa-check-o"></i> Approve</button>
 
-
-
-                                                    <button  data-toggle="modal" data-target="#disapproveaccount" class="btn btn-primary"><i class="fa fa-check-o"></i> DisApprove</button>
+                                                    <button onclick="delete_user('{{ donor.user.username }}')" data-toggle="modal" data-target="#delete" class="btn btn-primary"><i class="fa fa-check-o"></i> Delete</button>
                                                 </td>
 
                                             </tr>
-                                         <tr>
-                                                <td>3</td>
-                                                <td>Zeenat</td>
-                                                <td>zeenat123456@gmail.com</td>
-                                                <td>243-A block,faisal Town,Lahore</td>
-                                                <td>Donor</td>
-
-
-
-                                                     <td>
-
-                                                    <button  data-toggle="modal" data-target="#approveaccount" class="btn btn-primary"><i class="fa fa-check-o"></i> Approve</button>
-
-
-
-                                                    <button  data-toggle="modal" data-target="#disapproveaccount" class="btn btn-primary"><i class="fa fa-check-o"></i> DisApprove</button>
-                                                </td>
-
-                                            </tr>
+                                        {% endfor %}
 
                                         </tbody>
                                     </table>
@@ -105,7 +68,7 @@
                 <!-- Button trigger modal -->
 
     <!-- Modal -->
-<div class="modal fade" id="approveaccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="block" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -115,16 +78,16 @@
         </button>
       </div>
       <div class="modal-body">
-            <h3>Are you sure you want to Approve Account it?</h3>
+            <h3>Are you sure you want to Block Account it?</h3>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Approve</button>
+        <a href="#" id="bLink" type="button" class="btn btn-outline-success">Approve</a>
       </div>
     </div>
   </div>
 </div>
-<div class="modal fade" id="disapproveaccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -134,15 +97,27 @@
         </button>
       </div>
       <div class="modal-body">
-            <h3>Are you sure you want to DisApprove it?</h3>
+          <p><b style="color: red">Warning: </b>If you delete this user all the coresponding data will be lost permanently.</p>
+            <h3>Are you sure you want to Delete Account it?</h3>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">DisApprove</button>
+        <a href="#" id="dLink" type="button" class="btn btn-danger">Delete</a>
       </div>
     </div>
   </div>
 </div>
 
-
+<script>
+function approve_user(username) {
+    //console.log(username)
+    var link='/fdsadmin/account-approve/'+username
+    $('#bLink').attr('href',link)
+}
+function delete_user(username) {
+    //console.log(username)
+    var link='/fdsadmin/delete-user/'+username
+    $('#dLink').attr('href',link)
+}
+</script>
 {% endblock %}

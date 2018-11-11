@@ -23,6 +23,11 @@
                     <div class="col-lg-4 col-xlg-3 col-md-5">
                         <div class="card">
                             <div class="card-block">
+                            <center class="m-t-30">
+                                    {% if not user1.is_approved %}
+                                        <small style="color: red">Account Not approved Yet</small>
+                                    {% endif %}
+                                </center>
                                 <center class="m-t-30">
                                     {% if user1.image %}
                                         <img src="{{ user1.image.url }}" class="img-circle" width="150" />

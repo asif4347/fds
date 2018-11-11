@@ -15,6 +15,8 @@ from django.shortcuts import render, redirect
 
 @login_required
 def change_password(request):
+    if not auth_volunteer(request):
+        return redirect('/home/login')
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
@@ -32,6 +34,8 @@ def change_password(request):
 
 
 def index(request):
+    if not auth_volunteer(request):
+        return redirect('/home/login')
     volunteer = Volenteer.objects.get(user=request.user)
     pickups = Food.objects.filter(volunteer=volunteer)
     fast = pickups.filter(food_type='Fast Food').extra({'post_date': "date(post_date)"}).values('post_date').annotate(
@@ -72,6 +76,8 @@ def profile(request):
 
 
 def foods(request):
+    if not auth_volunteer(request):
+        return redirect('/home/login')
     volunteer = Volenteer.objects.get(user=request.user)
     all_foods=volunteer.food_set.all()
 
@@ -86,10 +92,14 @@ def foods(request):
 
 
 def map(request):
+    if not auth_volunteer(request):
+        return redirect('/home/login')
     return render(request, 'volunteer/map.html')
 
 
 def request(request):
+    if not auth_volunteer(request):
+        return redirect('/home/login')
     volunteer=Volenteer.objects.get(user=request.user)
     foods=Food.objects.filter(status='New Entry').exclude(volunteer__isnull=False)
 
@@ -97,12 +107,29 @@ def request(request):
 
 
 def setting(request):
+    if not auth_volunteer(request):
+        return redirect('/home/login')
     return render(request, 'volunteer/setting.html')
 
 
 def accept_food(request,pk):
+    if not auth_volunteer(request):
+        return redirect('/home/login')
     food=Food.objects.get(pk=pk)
     volunteer = Volenteer.objects.get(user=request.user)
     food.volunteer=volunteer
     food.save()
     return redirect('volunteer-request')
+
+
+
+def auth_volunteer(request):
+    volunteer=Volenteer.objects.filter(user=request.user).first()
+    if volunteer:
+        if volunteer.is_approved:
+            return True
+        else:
+            return False
+    else:
+        messages.error(request, 'Please login as donor')
+        return False

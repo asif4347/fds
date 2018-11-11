@@ -13,8 +13,12 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.shortcuts import render, redirect
 
+
 @login_required
 def change_password(request):
+    if not auth_donor(request):
+        return redirect('/home/login')
+
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
@@ -33,6 +37,9 @@ def change_password(request):
 
 @login_required
 def index(request):
+    if not auth_donor(request):
+        return redirect('/home/login')
+
     donor = Donor.objects.get(user=request.user)
     donations = Food.objects.filter(donor=donor)
     fast = donations.filter(food_type='Fast Food').extra({'post_date': "date(post_date)"}).values('post_date').annotate(
@@ -61,6 +68,8 @@ def index(request):
 
 @login_required
 def profile(request):
+    # if not auth_donor(request):
+    #     return redirect('/home/login')
     donor = Donor.objects.get(user=request.user)
     donations = Food.objects.filter(donor=donor).__len__()
     msg = ""
@@ -70,11 +79,13 @@ def profile(request):
         if form.is_valid():
             form.save()
             msg = "Profile Updated Successfully"
-    return render(request, 'donor/profile.html', {'form': form, 'msg': msg, 'donations': donations, 'user': donor})
+    return render(request, 'donor/profile.html', {'form': form, 'msg': msg, 'donations': donations, 'user1': donor})
 
 
 @login_required
 def foods(request):
+    if not auth_donor(request):
+        return redirect('/home/login')
     donor = Donor.objects.get(user=request.user)
     food_list = Food.objects.filter(donor=donor)
     if request.method == "POST":
@@ -92,16 +103,27 @@ def foods(request):
 
 @login_required
 def map(request):
+    if not auth_donor(request):
+        return redirect('/home/login')
+    if request.method=="POST":
+        donor = Donor.objects.get(user=request.user)
+        donor.map_latitude=request.POST.get('lat','')
+        donor.map_logitude=request.POST.get('lang','')
+        donor.save()
     return render(request, 'donor/map.html')
 
 
 @login_required
 def setting(request):
+    if not auth_donor(request):
+        return redirect('/home/login')
     return render(request, 'donor/setting.html')
 
 
 @login_required
 def rating(request):
+    if not auth_donor(request):
+        return redirect('/home/login')
     msg = ""
     user_rating = Rating.objects.filter(user=request.user)
     all_ratings = Rating.objects.all()
@@ -132,6 +154,8 @@ def rating(request):
 
 @login_required
 def feedback(request):
+    if not auth_donor(request):
+        return redirect('/home/login')
     msg = ""
     if request.method == "POST":
         form = FeedbackForm(request.POST)
@@ -146,6 +170,8 @@ def feedback(request):
 
 @login_required
 def delete(request, pk):
+    if not auth_donor(request):
+        return redirect('/home/login')
     food = Food.objects.get(pk=pk)
     food.delete()
     return redirect('donor-foods')
@@ -153,6 +179,8 @@ def delete(request, pk):
 
 @login_required
 def update(request, pk):
+    if not auth_donor(request):
+        return redirect('/home/login')
     food = Food.objects.get(pk=pk)
     if request.method == "POST":
         form = FoodForm(request.POST, request.FILES, instance=food)
@@ -167,3 +195,15 @@ def update(request, pk):
 
 def term_policy(request):
     return render(request, 'donor/term-policy.html')
+
+
+def auth_donor(request):
+    donor=Donor.objects.filter(user=request.user).first()
+    if donor:
+        if donor.is_approved:
+            return True
+        else:
+            return False
+    else:
+        messages.error(request, 'Please login as donor')
+        return False

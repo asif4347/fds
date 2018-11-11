@@ -80,14 +80,14 @@ def login(request):
             donor=Donor.objects.filter(user=thisUser).first()
             if volunteer:
                 request.session['pic']=volunteer.image.url
-                return redirect('volunteer-index')
+                return redirect('volunteer-profile')
             if donor:
                 request.session['pic'] = donor.image.url
-                return redirect('donor-index')
+                return redirect('donor-profile')
             else:
                 fds=FdsAdmin.objects.filter(user=thisUser).first()
                 request.session['pic'] = fds.image.url
-                return redirect('fdsadmin-index')
+                return redirect('fdsadmin-profile')
         else:
             err="username or password is incorrect!"
     return render(request,'login.html',{"err":err})
@@ -96,3 +96,5 @@ def login(request):
 def logout(request):
     auth_logout(request)
     return redirect('/home/login')
+
+
