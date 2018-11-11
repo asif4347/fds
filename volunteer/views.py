@@ -70,8 +70,9 @@ def profile(request):
     if request.method == "POST":
         form = ProfileForm(request.POST, request.FILES, instance=volunteer)
         if form.is_valid():
-            form.save()
+            volunteer = form.save()
             msg = "Profile Updated Successfully"
+            request.session['pic'] = volunteer.image.url
     return render(request, 'volunteer/profile.html',{'form':form,'msg':msg,'user1':volunteer,'pickups':pickups})
 
 

@@ -122,6 +122,8 @@ def profile(request):
             fdsAdmin = form.save()
             form = ProfileForm(instance=fdsAdmin)
             msg = "Profile Updated Successfully"
+
+            request.session['pic'] = fdsAdmin.image.url
     return render(request, 'fdsadmin/profile.html', {'form': form, 'msg': msg, 'user1': fdsAdmin})
 
 

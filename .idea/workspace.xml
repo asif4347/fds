@@ -2,26 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d44eb227-5aa1-497f-80b3-1837f3654f05" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/donor/migrations/0015_auto_20181111_1437.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donor/migrations/0016_auto_20181111_2246.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DSC_0023.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donor/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/donor/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/donor/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/donor/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdsadmin/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/fdsadmin/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fdsadmin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/fdsadmin/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstProject/media/WhatsApp_Image_2018-08-05_at_9.57.27_PM.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstProject/media/WhatsApp_Image_2018-08-05_at_9.57.35_PM.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/donor/map.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/donor/map.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/donor/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/donor/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/fdsadmin/donor.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/fdsadmin/donor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/fdsadmin/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/fdsadmin/sidebar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/fdsadmin/volunteer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/fdsadmin/volunteer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/volunteer/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/volunteer/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/volunteer/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/volunteer/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/volunteer/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/volunteer/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,7 +69,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="35" />
-          <entry key="Python" value="33" />
+          <entry key="Python" value="35" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -95,19 +78,19 @@
           <entry key="CommandLine" value="12" />
           <entry key="HTML" value="1574" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="2124" />
+          <entry key="Python" value="2141" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="35" />
-          <entry key="py" value="33" />
+          <entry key="py" value="35" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="1574" />
-          <entry key="py" value="2124" />
+          <entry key="py" value="2141" />
           <entry key="py@firstProject" value="13" />
         </counts>
       </usages-collector>
@@ -115,23 +98,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fdsadmin/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="74" column="63" selection-start-line="74" selection-start-column="63" selection-end-line="74" selection-end-column="63" />
+            <state relative-caret-position="345">
+              <caret line="125" column="45" selection-start-line="125" selection-start-column="45" selection-end-line="125" selection-end-column="45" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
-                <marker date="1541954088311" expanded="true" signature="5851:5856" ph="..." />
+                <marker date="1541979220587" expanded="true" signature="5908:5913" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/donor/map.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
+            <state relative-caret-position="282">
               <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
               <folding>
                 <element signature="e#964#984#0#HTML" expanded="true" />
@@ -155,8 +138,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/donor/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="110" column="54" selection-start-line="110" selection-start-column="54" selection-end-line="110" selection-end-column="54" />
+            <state relative-caret-position="215">
+              <caret line="81" column="52" lean-forward="true" selection-start-line="79" selection-start-column="12" selection-end-line="81" selection-end-column="52" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
               </folding>
@@ -165,21 +148,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/fdsadmin/sidebar.html">
+        <entry file="file://$PROJECT_DIR$/volunteer/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="187" selection-start-line="18" selection-start-column="187" selection-end-line="18" selection-end-column="187" />
+            <state relative-caret-position="255">
+              <caret line="74" column="46" selection-start-line="74" selection-start-column="46" selection-end-line="74" selection-end-column="46" />
+              <folding>
+                <element signature="e#0#57#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/fdsadmin/donor_manage.html">
+        <entry file="file://$PROJECT_DIR$/home/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" selection-start-line="16" selection-end-line="126" selection-end-column="14" />
+            <state relative-caret-position="168">
+              <caret line="84" column="56" lean-forward="true" selection-start-line="84" selection-start-column="16" selection-end-line="84" selection-end-column="56" />
               <folding>
-                <element signature="n#block#2;n#!!top" />
+                <element signature="e#0#65#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -287,16 +273,16 @@
         <option value="$PROJECT_DIR$/volunteer/models.py" />
         <option value="$PROJECT_DIR$/templates/donor/profile.html" />
         <option value="$PROJECT_DIR$/templates/volunteer/profile.html" />
-        <option value="$PROJECT_DIR$/volunteer/views.py" />
         <option value="$PROJECT_DIR$/home/views.py" />
         <option value="$PROJECT_DIR$/fdsadmin/urls.py" />
         <option value="$PROJECT_DIR$/templates/fdsadmin/donor.html" />
         <option value="$PROJECT_DIR$/templates/fdsadmin/volunteer.html" />
         <option value="$PROJECT_DIR$/templates/fdsadmin/sidebar.html" />
-        <option value="$PROJECT_DIR$/fdsadmin/views.py" />
         <option value="$PROJECT_DIR$/donor/models.py" />
-        <option value="$PROJECT_DIR$/donor/views.py" />
         <option value="$PROJECT_DIR$/templates/donor/map.html" />
+        <option value="$PROJECT_DIR$/donor/views.py" />
+        <option value="$PROJECT_DIR$/volunteer/views.py" />
+        <option value="$PROJECT_DIR$/fdsadmin/views.py" />
       </list>
     </option>
   </component>
@@ -336,13 +322,17 @@
             <path>
               <item name="fds" type="b2602c69:ProjectViewProjectNode" />
               <item name="fds" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="fdsadmin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fds" type="b2602c69:ProjectViewProjectNode" />
               <item name="fds" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="donor" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fds" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fds" type="462c0819:PsiDirectoryNode" />
+              <item name="volunteer" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -420,12 +410,12 @@
     <frame x="67" y="27" width="1299" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21479714" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21479714" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.43137255" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.43137255" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39869282" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -433,7 +423,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="manage.py@firstProject" order="9" weight="0.39869282" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.5735294" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.24019608" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="bottom" id="Python Console" order="13" />
@@ -687,6 +677,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="93">
           <caret line="17" column="16" lean-forward="true" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -751,16 +744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
-          <folding>
-            <element signature="e#0#65#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -776,16 +759,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1071">
           <caret line="23" column="4" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/volunteer/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="116" column="38" lean-forward="true" selection-start-line="115" selection-start-column="4" selection-end-line="116" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -847,17 +820,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fdsadmin/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="74" column="63" selection-start-line="74" selection-start-column="63" selection-end-line="74" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-            <marker date="1541954088311" expanded="true" signature="5851:5856" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/donor/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-206">
@@ -868,22 +830,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/donor/map.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
+          <folding>
+            <element signature="e#964#984#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="84" column="56" lean-forward="true" selection-start-line="84" selection-start-column="16" selection-end-line="84" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/donor/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="110" column="54" selection-start-line="110" selection-start-column="54" selection-end-line="110" selection-end-column="54" />
+        <state relative-caret-position="215">
+          <caret line="81" column="52" lean-forward="true" selection-start-line="79" selection-start-column="12" selection-end-line="81" selection-end-column="52" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/donor/map.html">
+    <entry file="file://$PROJECT_DIR$/volunteer/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
+        <state relative-caret-position="255">
+          <caret line="74" column="46" selection-start-line="74" selection-start-column="46" selection-end-line="74" selection-end-column="46" />
           <folding>
-            <element signature="e#964#984#0#HTML" expanded="true" />
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fdsadmin/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="125" column="45" selection-start-line="125" selection-start-column="45" selection-end-line="125" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+            <marker date="1541979220587" expanded="true" signature="5908:5913" ph="..." />
           </folding>
         </state>
       </provider>
