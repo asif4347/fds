@@ -195,11 +195,35 @@
     <script src="{% static  'Panel/lite/js/dashboard1.js' %}"></script>
 <script>
 $('input').attr('class','form-control')
+$('#id_name').attr('pattern','[A-Za-z ]{5,}')
+$('#id_mobile').attr('pattern','[0-9]{11}')
+$('#id_name').attr('title','Chars only with minimum 5 length')
+
+$('#id_mobile').attr('title','numbers only with 11 length(03211234567)')
     $('select').attr('class','form-control')
 
     $(document).ready( function () {
     $('#myTable').DataTable();
 } );
+</script>
+<script>
+
+$('#id_cnic').keydown(function(){
+console.log('cnic changed')
+  //allow  backspace, tab, ctrl+A, escape, carriage return
+  if (event.keyCode == 8 || event.keyCode == 9
+                    || event.keyCode == 27 || event.keyCode == 13
+                    || (event.keyCode == 65 && event.ctrlKey === true) )
+                        return;
+  if((event.keyCode < 48 || event.keyCode > 57))
+   event.preventDefault();
+
+  var length = $(this).val().length;
+
+  if(length == 5 || length == 13)
+   $(this).val($(this).val()+'-');
+
+ });
 </script>
 
 {# <script>#}

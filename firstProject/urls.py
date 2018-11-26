@@ -15,7 +15,7 @@ urlpatterns = [
     url(r'donor/',include('donor.urls')),
     url(r'volunteer/',include('volunteer.urls')),
     url(r'fdsadmin/',include('fdsadmin.urls')),
-
+    url(r'centre/',include('centre.urls')),
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -13,6 +13,8 @@ class Rating(models.Model):
     rate=models.IntegerField(null=False)
     user=models.OneToOneField(User,on_delete=models.CASCADE)
 
+    def __int__(self):
+        return self.rate
 
 
 class FdsAdmin(models.Model):
@@ -25,6 +27,7 @@ class FdsAdmin(models.Model):
     gender = models.CharField(max_length=6, blank=True, null=True, choices=gender)
     city = models.CharField(max_length=20, blank=True, null=True)
     country = models.CharField(max_length=20, blank=True, null=True)
+    cnic = models.CharField(max_length=20, blank=True, null=True)
 
     def __str__(self):
         return self.name

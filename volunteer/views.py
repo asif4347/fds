@@ -16,7 +16,7 @@ from django.shortcuts import render, redirect
 @login_required
 def change_password(request):
     if not auth_volunteer(request):
-        return redirect('/home/login')
+        return redirect('volunteer-profile')
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
@@ -35,7 +35,7 @@ def change_password(request):
 
 def index(request):
     if not auth_volunteer(request):
-        return redirect('/home/login')
+        return redirect('volunteer-profile')
     volunteer = Volenteer.objects.get(user=request.user)
     pickups = Food.objects.filter(volunteer=volunteer)
     fast = pickups.filter(food_type='Fast Food').extra({'post_date': "date(post_date)"}).values('post_date').annotate(
@@ -78,14 +78,17 @@ def profile(request):
 
 def foods(request):
     if not auth_volunteer(request):
-        return redirect('/home/login')
+        return redirect('volunteer-profile')
     volunteer = Volenteer.objects.get(user=request.user)
     all_foods=volunteer.food_set.all()
 
     if request.method=="POST":
         status=request.POST.get('status',"")
         location=request.POST.get('location',"")
-        food=Food.objects.get(pk=request.POST.get('foodId',''))
+        print(request.POST.get('foodId',''))
+        print(location,status)
+        foodId=int(request.POST.get('foodId'))
+        food=Food.objects.get(pk=foodId)
         food.status=status
         food.delivered_at=location
         food.save()
@@ -94,13 +97,13 @@ def foods(request):
 
 def map(request):
     if not auth_volunteer(request):
-        return redirect('/home/login')
+        return redirect('volunteer-profile')
     return render(request, 'volunteer/map.html')
 
 
 def request(request):
     if not auth_volunteer(request):
-        return redirect('/home/login')
+        return redirect('volunteer-profile')
     volunteer=Volenteer.objects.get(user=request.user)
     foods=Food.objects.filter(status='New Entry').exclude(volunteer__isnull=False)
 
@@ -109,13 +112,13 @@ def request(request):
 
 def setting(request):
     if not auth_volunteer(request):
-        return redirect('/home/login')
+        return redirect('volunteer-profile')
     return render(request, 'volunteer/setting.html')
 
 
 def accept_food(request,pk):
     if not auth_volunteer(request):
-        return redirect('/home/login')
+        return redirect('volunteer-profile')
     food=Food.objects.get(pk=pk)
     volunteer = Volenteer.objects.get(user=request.user)
     food.volunteer=volunteer

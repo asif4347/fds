@@ -3,40 +3,218 @@
 
 {% block main %}
     <link href="{% static 'css/news.css' %}" rel="stylesheet"/>
-    <style>
+   <style>
+
+
+.container {
+    position: relative;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+.container .content {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 97%;
+    padding: 8px;
+    margin-bottom: 0%;
+    padding-right: 30px;
+}
+
+.mySlides {display: none;}
+ img {vertical-align: middle;}
+ /* Slideshow container */
+.slideshow-container {
+
+  position: relative;
+  margin: auto;
+}
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: green;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
+
 
 footer{
-	padding:2.5%;
-	margin-top:40%;
+	padding:30px;
+	margin-top:0px;
 	color:#ffffff;
-	background-color: #66CDAA;
+	background-color: #3cb371;
 	text-align:center;
 }
-    </style>
-	 <section id="boxs">
-	<div class="container">
-	<div class="box">
-        <img src="{% static "images/download (2).jpg" %}" width="50" height="60" >
 
-	<h3>Breakfast bars</h3>
-	<p>Courtesy of Kyndra Claire Kelly, Chef and Food Blogger. PB & J Breakfast Bars. The perfect on-the-go snack! Skip the peanut butter and jelly, ...</p>
-	</div>
-	<div class="box">
-        <img src="{% static "images/download (1).jpg" %}" width="50" height="60" >
 
-	<h3>rice/pasta side dishes</h3>
-	<p>Add flavor to this favorite side dish. Baked Macaroni, Cheese & Spinach - Rich and cheesy side dish. Low Fat! Broccoli, Cauliflower & Rice Bake - Creamy, cheesy casserole makes a hearty side dish or a healthy main course
-	</p>
-	</div>
-	<div class="box">
-        <img src="{% static "images/download.jpg" %}" width="50" height="60" >
+</style>
+	<!--<div class="slideshow-container" style="margin-top: 40px">
 
-		<h3>jelly</h3>
-		<p>Jelly (fruit preserves), a clear or translucent fruit spread or preserve, referred to as jelly in Canada and other countries</p>
-	</div>
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+     <img src="{% static "images/pakistan.jpg" %}" style="width: 100%" >
+
+  <div class="dark">Proud to be Pakistani-Proud to be Pakistan's First Food Donation application organizing in lahore</div>
 </div>
-</section>
 
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+    <img src="{% static "images/stars.jpg" %}"  style="width: 100%" >
+
+  <div class="text">Food Donor announces for their Pioneer Volunteers "Virtue Star Award" annualy on good performace </div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3/3</div>
+    <img src="{% static "images/download.jpg" %}" style="width: 100%" >
+
+  <div class="text">Food Donor considers as best service provider for willing citizens who donates-to make CLEAN and HEALTHY Pakistan</div>
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+</script>-->
+    <div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="{% static "images/pakistan.jpg" %}"  width="100%" height="500px">
+  <div class="container">
+    <div class="content">
+    <h1>Food Donors</h1>
+    <p>Proud to be Pakistani-Proud to be Pakistan's First Food Donation application organizing in lahore. </p>
+  </div>
+</div>
+</div>
+
+ <div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+ <img src="{% static "images/stars.jpg" %}"  width="100%" height="500px">
+  <div class="container">
+    <div class="content">
+    <h1>Food Donors</h1>
+    <p>Food Donor announces for their Pioneer Volunteers "Virtue Star Award" annualy on good performace. </p>
+  </div>
+</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+   <img src="{% static "images/download.jpg" %}"  width="100%" height="500px">
+  <div class="container">
+    <div class="content">
+    <h1>Food Donors</h1>
+    <p>The Bill Emerson Good Samaritan Act protects food donors from being liable for the quality of the food. Here’s how it works: as a food donor you can post the amount of excess food you have available and the time required to pick the food up. Then organizations can request the food. Afterwards, the organization will be held responsible for picking up the food in a seamless and efficient manner. </p>
+  </div>
+</div>
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+</script>
 
 
 

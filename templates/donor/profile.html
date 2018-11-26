@@ -59,6 +59,7 @@
                               padding-right: 34px; color: black;">
                                 <small style="color: green">{{ msg }}</small>
                                 <form method="post" enctype="multipart/form-data" class="form-horizontal form-material">
+
                                      {% csrf_token %}
                                    {% include 'form.html' %}
 

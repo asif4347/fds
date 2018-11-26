@@ -79,14 +79,26 @@ def login(request):
             volunteer=Volenteer.objects.filter(user=thisUser).first()
             donor=Donor.objects.filter(user=thisUser).first()
             if volunteer:
-                request.session['pic']=volunteer.image.url
-                return redirect('volunteer-profile')
+                try:
+                    request.session['pic']=volunteer.image.url
+                except:
+                    print("Image Not Found")
+                    request.session['pic']="/static/images/Student-64.png"
+                return redirect('volunteer-index')
             if donor:
-                request.session['pic'] = donor.image.url
-                return redirect('donor-profile')
+                try:
+                    request.session['pic']=donor.image.url
+                except:
+                    print("Image Not Found")
+                    request.session['pic']="/static/images/Student-64.png"
+                return redirect('donor-index')
             else:
                 fds=FdsAdmin.objects.filter(user=thisUser).first()
-                request.session['pic'] = fds.image.url
+                try:
+                    request.session['pic']=fds.image.url
+                except:
+                    print("Image Not Found")
+                    request.session['pic']="/static/images/Student-64.png"
                 return redirect('fdsadmin-profile')
         else:
             err="username or password is incorrect!"

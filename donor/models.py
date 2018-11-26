@@ -24,6 +24,7 @@ class Donor(models.Model):
     is_approved=models.BooleanField(default=False)
     map_latitude=models.FloatField(blank=True,null=True)
     map_logitude=models.FloatField(blank=True,null=True)
+    cnic=models.CharField(max_length=15,blank=True,null=True)
 
     def __str__(self):
         return self.name
@@ -37,6 +38,11 @@ food_types={
     ("Fast Food","Fast Food"),
     ("Regular Food","Regular Food"),
 }
+
+
+class FoodImage(models.Model):
+    image = models.ImageField(blank=True, null=True)
+
 
 class Food(models.Model):
     donor=models.ManyToManyField(Donor)

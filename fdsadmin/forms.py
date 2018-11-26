@@ -7,6 +7,7 @@ class ProfileForm(ModelForm):
         model=FdsAdmin
         fields=(
             "name",
+            "cnic",
             "address",
             'city',
             'country',

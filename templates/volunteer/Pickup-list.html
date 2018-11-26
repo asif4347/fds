@@ -43,7 +43,7 @@
 
                                                 <tr style="background-color: aquamarine">
 
-                                                <td>{{ food.food_title }}</td>
+                                                <td><a target="_blank" href="/media/{{ food.image }}">{{ food.food_title }}</a></td>
                                                 <td>{{ food.quantity }} People</td>
                                                 <td>{{ food.post_date }}</td>
                                                 <td>
@@ -56,7 +56,7 @@
                                             {% if food.status != 'Delivered' %}
                                                 <tr>
 
-                                                <td>{{ food.food_title }}</td>
+                                                <td><a target="_blank" href="/media/{{ food.image }}">{{ food.food_title }}</a></td>
                                                 <td>{{ food.quantity }} People</td>
                                                 <td>{{ food.post_date }}</td>
                                                 <td>
@@ -64,8 +64,9 @@
                                                 </td>
                                             <form method="post">
                                             {% csrf_token %}
-                                            <input name="foodId" value="{{ food.id }}" hidden>
+
                                                 <td>
+                                                     <input name="foodId" type="number" value="{{ food.id }}" hidden>
                                                     <select name="status" class="form-control">
                                                         <option value="{{ food.status }}">{{ food.status }}</option>
                                                         <option><i class="btn-outline-primary mdi mdi-check"> Picked</i></option>

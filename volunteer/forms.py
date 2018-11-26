@@ -17,6 +17,7 @@ class ProfileForm(ModelForm):
         model=Volenteer
         fields=(
             "name",
+            "cnic",
             "address",
             'city',
             'country',
