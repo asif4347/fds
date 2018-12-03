@@ -11,11 +11,11 @@ from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.shortcuts import render, redirect
-from twilio.rest import Client
-
-account_sid = 'AC83362a0105ba10e6022496ddd9574b12'
-auth_token = '60064eb296c19552875ad031bcfa10c9'
-client = Client(account_sid, auth_token)
+# from twilio.rest import Client
+#
+# account_sid = 'AC83362a0105ba10e6022496ddd9574b12'
+# auth_token = '60064eb296c19552875ad031bcfa10c9'
+# client = Client(account_sid, auth_token)
 
 import plivo
 
@@ -37,17 +37,17 @@ def Send(to,body):
         text=body)
 
 
-def sendSms(to, body):
-    new_mobile = '+92'
-    newstr = to[:0] + to[1:]
-    new_mobile = new_mobile + newstr
-    message = client.messages.create(
-        from_='+12244772647',  # (224) 477-2647
-        body=body,
-        to=new_mobile
-    )
-
-    return message.sid
+# def sendSms(to, body):
+#     new_mobile = '+92'
+#     newstr = to[:0] + to[1:]
+#     new_mobile = new_mobile + newstr
+#     message = client.messages.create(
+#         from_='+12244772647',  # (224) 477-2647
+#         body=body,
+#         to=new_mobile
+#     )
+#
+#     return message.sid
 
 
 @login_required
