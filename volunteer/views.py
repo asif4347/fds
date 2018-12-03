@@ -17,6 +17,25 @@ account_sid = 'AC83362a0105ba10e6022496ddd9574b12'
 auth_token = '60064eb296c19552875ad031bcfa10c9'
 client = Client(account_sid, auth_token)
 
+import plivo
+
+AUTH_ID = "MANJJLZTG4ZJLJYWVLMD"
+AUTH_TOKEN = "ZDc4Y2FjNTZhZmViM2QxOTRjNTg2OTg2NmViYWNk"
+
+client2 = plivo.RestClient(AUTH_ID,AUTH_TOKEN)
+
+def Send(to,body):
+    new_mobile = '+92'
+    newstr = to[:0] + to[1:]
+    new_mobile = new_mobile + newstr
+    message_created = client2.messages.create(
+
+        src='+923024506389',
+
+        dst=new_mobile,
+
+        text=body)
+
 
 def sendSms(to, body):
     new_mobile = '+92'
@@ -108,8 +127,16 @@ def foods(request):
         foodId = int(request.POST.get('foodId'))
         food = Food.objects.get(pk=foodId)
         food.status = status
+        donor=food.donor.first()
         food.delivered_at = location
         food.save()
+        body = "\nHello Mr. " + donor.user.first_name + " " + donor.user.last_name + "\nThis is to inform you that your  Food: " + food.food_title + " is been devlivered by " + food.volunteer.user.first_name + "\n at "+location+" Please call this number to confirm: " + food.volunteer.mobile
+        try:
+            # sendSms(donor.mobile,body)
+            Send(donor.mobile, body)
+        except:
+            print('error in message sending')
+
     return render(request, 'volunteer/Pickup-list.html', {'foods': all_foods, 'volunteer': volunteer})
 
 
@@ -149,7 +176,8 @@ def accept_food(request, pk):
     print(donor.mobile)
     body = "\nHello Mr. " + donor.user.first_name + " " + donor.user.last_name + "\nThis is to inform you that your request for Food: " + food.food_title + " is been accepted by "+food.volunteer.user.first_name+"\n Please call this number to confirm: "+food.volunteer.mobile
     try:
-        sendSms(donor.mobile,body)
+        #sendSms(donor.mobile,body)
+        Send(donor.mobile,body)
     except:
         print('error in message sending')
     return redirect('volunteer-request')
