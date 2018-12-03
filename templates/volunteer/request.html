@@ -45,7 +45,7 @@
                                                 <td>{{ food.quantity }} People</td>
                                                 <td>{{ food.post_date }}</td>
                                                 <td>
-                                                    <a href="{% url 'volunteer-map' %}">Navigate</a>
+                                                    <a href="{% url 'volunteer-map' food.id%}">Navigate</a>
                                                 </td>
 
                                                 <td>

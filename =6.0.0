@@ -1,0 +1,14 @@
+Collecting twilio
+  Downloading https://files.pythonhosted.org/packages/db/b5/278588b3a10aca78fea3795b8099e74e4be5b50cd779bd4accbfaac1ec48/twilio-6.21.0-py2.py3-none-any.whl (929kB)
+Collecting pytz (from twilio)
+  Using cached https://files.pythonhosted.org/packages/f8/0e/2365ddc010afb3d79147f1dd544e5ee24bf4ece58ab99b16fbb465ce6dc0/pytz-2018.7-py2.py3-none-any.whl
+Collecting PyJWT>=1.4.2 (from twilio)
+  Downloading https://files.pythonhosted.org/packages/02/9b/16c92330f1fb76e3f6372ba6f804d412ec894ee1d9ea31516269b5f6add4/PyJWT-1.7.0-py2.py3-none-any.whl
+Collecting pysocks; python_version >= "3.0" (from twilio)
+  Downloading https://files.pythonhosted.org/packages/53/12/6bf1d764f128636cef7408e8156b7235b150ea31650d0260969215bb8e7d/PySocks-1.6.8.tar.gz (283kB)
+    Complete output from command python setup.py egg_info:
+    Traceback (most recent call last):
+      File "<string>", line 1, in <module>
+    ModuleNotFoundError: No module named 'setuptools'
+    
+    ----------------------------------------

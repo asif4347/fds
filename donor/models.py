@@ -56,8 +56,9 @@ class Food(models.Model):
     location=models.CharField(max_length=200,blank=True,null=True)
     image=models.ImageField(blank=True,null=True)
     volunteer=models.ForeignKey(Volenteer,on_delete=models.SET_NULL,null=True)
+
     def __str__(self):
-        return self.food_type
+        return self.food_title
 
 
 class Feedback(models.Model):

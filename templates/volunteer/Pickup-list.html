@@ -47,7 +47,7 @@
                                                 <td>{{ food.quantity }} People</td>
                                                 <td>{{ food.post_date }}</td>
                                                 <td>
-                                                    <a href="{% url 'volunteer-map' %}">Navigate</a>
+                                                    <a href="{% url 'volunteer-map' food.id %}">Navigate</a>
                                                 </td>
                                                 <td>{{ food.status }}</td>
                                                 <td>{{ food.delivered_at }}</td><td></td>
@@ -60,7 +60,7 @@
                                                 <td>{{ food.quantity }} People</td>
                                                 <td>{{ food.post_date }}</td>
                                                 <td>
-                                                    <a href="{% url 'volunteer-map' %}">Navigate</a>
+                                                    <a href="/volunteer/map/{{food.id}}">Navigate</a>
                                                 </td>
                                             <form method="post">
                                             {% csrf_token %}
