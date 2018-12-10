@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(Food)
 admin.site.register(Donor)
 admin.site.register(Feedback)
+admin.site.register(FoodImage)

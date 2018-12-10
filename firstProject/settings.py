@@ -127,3 +127,11 @@ STATIC_URL = '/static/'
 PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 MEDIA_ROOT = PROJECT_PATH + '/media/'
 MEDIA_URL = '/media/'
+
+# Email Settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'jeydogar@gmail.com'
+EMAIL_HOST_PASSWORD = '03024506393'

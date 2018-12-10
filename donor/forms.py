@@ -30,7 +30,7 @@ class FoodForm(ModelForm):
             "preparation_date",
             "post_date",
             "quantity",
-            'image'
+
         )
 
 

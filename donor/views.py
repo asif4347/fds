@@ -12,7 +12,9 @@ from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.shortcuts import render, redirect
+from django.core.mail import send_mail
 
+from firstProject import settings
 
 @login_required
 def change_password(request):
@@ -79,7 +81,11 @@ def profile(request):
         if form.is_valid():
             donor=form.save()
             msg = "Profile Updated Successfully"
-            request.session['pic'] = donor.image.url
+            if donor.image:
+                request.session['pic'] = donor.image.url
+            else:
+                request.session['pic']='/static/images/Student-64.png'
+            send_mail('FDS Notification',"Your profile updated successfully",settings.EMAIL_HOST_USER,[donor.user.email,])
     return render(request, 'donor/profile.html', {'form': form, 'msg': msg, 'donations': donations, 'user1': donor})
 
 
@@ -96,6 +102,12 @@ def foods(request):
         if form.is_valid():
             food=form.save()
             food.donor.add(donor)
+            food.save()
+            for file in request.FILES.getlist('gallery'):
+                foodImg=FoodImage()
+                foodImg.image=file
+                foodImg.save()
+                food.gallery.add(foodImg)
             food.save()
     else:
         form = FoodForm(initial={'donor': donor})
@@ -199,6 +211,13 @@ def update(request, pk):
 def term_policy(request):
     return render(request, 'donor/term-policy.html')
 
+def gallery(request,pk):
+    food=Food.objects.get(pk=pk)
+    links=[]
+    for image in food.gallery.all():
+        links.append(image.image)
+        links.append(image.image)
+    return render(request,'gallery.html',{'images':food.gallery.all()})
 
 def auth_donor(request):
     donor=Donor.objects.filter(user=request.user).first()

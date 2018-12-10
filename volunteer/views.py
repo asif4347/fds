@@ -6,7 +6,9 @@ from .models import Volenteer, Location
 from .forms import *
 import json
 # Create your views here.
+from django.core.mail import send_mail
 
+from firstProject import settings
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
@@ -109,7 +111,10 @@ def profile(request):
         if form.is_valid():
             volunteer = form.save()
             msg = "Profile Updated Successfully"
-            request.session['pic'] = volunteer.image.url
+            if volunteer.image:
+                request.session['pic'] = volunteer.image.url
+            else:
+                request.session['pic']='/static/images/Student-64.png'
     return render(request, 'volunteer/profile.html', {'form': form, 'msg': msg, 'user1': volunteer, 'pickups': pickups})
 
 
@@ -130,10 +135,12 @@ def foods(request):
         donor=food.donor.first()
         food.delivered_at = location
         food.save()
-        body = "\nHello Mr. " + donor.user.first_name + " " + donor.user.last_name + "\nThis is to inform you that your  Food: " + food.food_title + " is been devlivered by " + food.volunteer.user.first_name + "\n at "+location+" Please call this number to confirm: " + food.volunteer.mobile
+        body = "\nHello " + donor.user.first_name + " " + donor.user.last_name + "\nThis is to inform you that your  Food: " + food.food_title + " is been devlivered by " + food.volunteer.user.first_name + "\n at "+location+" Please call this number to confirm: " + food.volunteer.mobile
         try:
             # sendSms(donor.mobile,body)
-            Send(donor.mobile, body)
+            if status!='Picked':
+                send_mail('FDS Notification', body, settings.EMAIL_HOST_USER, [donor.user.email, ])
+                Send(donor.mobile, body)
         except:
             print('error in message sending')
 
@@ -174,9 +181,10 @@ def accept_food(request, pk):
 
     donor = food.donor.all()[0]
     print(donor.mobile)
-    body = "\nHello Mr. " + donor.user.first_name + " " + donor.user.last_name + "\nThis is to inform you that your request for Food: " + food.food_title + " is been accepted by "+food.volunteer.user.first_name+"\n Please call this number to confirm: "+food.volunteer.mobile
+    body = "\nHello " + donor.user.first_name + " " + donor.user.last_name + "\nThis is to inform you that your request for Food: " + food.food_title + " is been accepted by "+food.volunteer.user.first_name+"\n Please call this number to confirm: "+food.volunteer.mobile
     try:
         #sendSms(donor.mobile,body)
+        send_mail('FDS Notification', body, settings.EMAIL_HOST_USER, [donor.user.email, ])
         Send(donor.mobile,body)
     except:
         print('error in message sending')

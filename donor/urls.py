@@ -13,4 +13,5 @@ urlpatterns = [
     url(r'food/(?P<pk>\d+)/delete',views.delete,name='delete-food'),
     url(r'food/(?P<pk>\d+)/updated',views.update,name='update-food'),
     url(r'^password/$', views.change_password, name='change_password'),
+    url(r'^gallery/(?P<pk>\d+)$', views.gallery, name='gallery'),
 ]

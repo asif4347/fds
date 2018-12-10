@@ -54,9 +54,10 @@ class Food(models.Model):
     post_date = models.DateField(blank=True, default=now())
     status=models.CharField(choices=choices,max_length=10,default='New Entry')
     location=models.CharField(max_length=200,blank=True,null=True)
-    image=models.ImageField(blank=True,null=True)
+    image=models.ImageField(blank=True,null=True,)
+    gallery=models.ManyToManyField(FoodImage)
     volunteer=models.ForeignKey(Volenteer,on_delete=models.SET_NULL,null=True)
-
+    is_consumed=models.BooleanField(default=False)
     def __str__(self):
         return self.food_title
 

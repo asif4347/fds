@@ -10,7 +10,7 @@ from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.shortcuts import render, redirect
-
+from volunteer.views import Send
 
 @login_required
 def change_password(request):
@@ -91,14 +91,18 @@ def account_approve(request,username):
     user = User.objects.get(username=username)
     volunteer = Volenteer.objects.filter(user=user).first()
     donor = Donor.objects.filter(user=user).first()
+    body="Hi Your account has been approved by Admin, Kindly log in to access your dashboard"
+
     if volunteer:
         volunteer.is_approved=True
         volunteer.save()
+        Send(volunteer.mobile,body)
         return redirect('fdsadmin-volunteer')
 
     if donor:
         donor.is_approved=True
         donor.save()
+        Send(donor.mobile, body)
         return redirect('fdsadmin-donor')
 
 
