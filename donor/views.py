@@ -172,15 +172,18 @@ def feedback(request):
     if not auth_donor(request):
         return redirect('donor-profile')
     msg = ""
+    feedbacks=Feedback.objects.filter(user=request.user)
     if request.method == "POST":
         form = FeedbackForm(request.POST)
         if form.is_valid():
-            form.save()
+            feed=form.save()
+            feed.user=request.user
+            feed.save()
             msg = "feedback submitted successfully"
             form = FeedbackForm()
     else:
         form = FeedbackForm()
-    return render(request, 'donor/feedback.html', {"form": form, 'msg': msg})
+    return render(request, 'donor/feedback.html', {"form": form, 'msg': msg,'feedbacks':feedbacks})
 
 
 @login_required

@@ -63,6 +63,8 @@ class Food(models.Model):
 
 
 class Feedback(models.Model):
+    user=models.ForeignKey(User,null=True,on_delete=models.CASCADE )
     full_name=models.CharField(max_length=15, null=False, blank=False)
     email=models.CharField(max_length=20, null=False, blank=False)
     comment=models.CharField(max_length=500, null=False, blank=False)
+    reply=models.CharField(max_length=200,null=True)

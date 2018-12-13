@@ -81,6 +81,13 @@ def feedback(request):
     if not auth_admin(request):
         return redirect('/home/login')
     feedbacks = Feedback.objects.all()
+    if request.method=='POST':
+        id=request.POST.get('feedMsg','')
+        id=int(id)
+        msg=request.POST.get('msg','')
+        feed=Feedback.objects.get(pk=id)
+        feed.reply=msg
+        feed.save()
     return render(request, 'fdsadmin/feedback.html', {'feedbacks': feedbacks})
 
 
