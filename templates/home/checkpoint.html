@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block main %}
+<style>
+input, select, textarea,button {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+</style>
+
+    <form method="post" style="align-content: center">
+
+
+    {% csrf_token %}
+    <input placeholder="Enter the code sent to email" name="code" style="max-width: 40%">
+
+    <button type="submit" style="max-width: 10%">Submit</button>
+       <p style="color: red">{{ msg }}</p>
+    </form>
+
+{% endblock %}
